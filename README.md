@@ -5,7 +5,7 @@
 
 > **Portfolio demo project.** Iron District Fitness is a fictional brand. All names, trainers, prices, addresses, phone numbers and statistics are placeholder content.
 
-**Live demo:** Coming soon
+**Live demo:** https://iron-district-fitness-indol.vercel.app
 
 ---
 
