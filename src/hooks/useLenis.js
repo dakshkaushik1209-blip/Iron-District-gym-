@@ -60,6 +60,7 @@ export function smoothScrollTo(target, offset = -80) {
   if (typeof window === 'undefined') return;
 
   if (window.__lenis) {
+    window.__lenis.resize();
     window.__lenis.scrollTo(target, { offset });
   } else {
     const el = typeof target === 'string' ? document.querySelector(target) : target;

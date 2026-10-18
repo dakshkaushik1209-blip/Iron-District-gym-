@@ -1,17 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { SITE_CONFIG } from '../lib/config';
 import { FooterWordmark } from './FooterWordmark';
 import { smoothScrollTo } from '../hooks/useLenis';
 
 export function Footer() {
-  const handleTrialClick = (e) => {
-    const trialSection = document.getElementById('trial');
-    if (trialSection) {
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
+
+  const handleSectionLink = (e, sectionId) => {
+    if (isHomePage) {
       e.preventDefault();
-      smoothScrollTo('#trial', -80);
-      if (window.location.hash !== '#trial') {
-        window.history.pushState(null, '', `${window.location.pathname}#trial`);
+      smoothScrollTo(`#${sectionId}`, -80);
+      if (window.location.hash !== `#${sectionId}`) {
+        window.history.pushState(null, '', `/#${sectionId}`);
       }
     }
   };
@@ -47,27 +49,47 @@ export function Footer() {
             </span>
             <ul className="flex flex-col gap-2 font-body text-sm text-text-body">
               <li>
-                <Link to="/programs#strength-training" className="hover:text-primary transition-colors">
+                <Link
+                  to="/#programs"
+                  onClick={(e) => handleSectionLink(e, 'programs')}
+                  className="hover:text-primary transition-colors"
+                >
                   Strength Training
                 </Link>
               </li>
               <li>
-                <Link to="/programs#muscle-building" className="hover:text-primary transition-colors">
+                <Link
+                  to="/#programs"
+                  onClick={(e) => handleSectionLink(e, 'programs')}
+                  className="hover:text-primary transition-colors"
+                >
                   Muscle Building
                 </Link>
               </li>
               <li>
-                <Link to="/programs#fat-loss-training" className="hover:text-primary transition-colors">
+                <Link
+                  to="/#programs"
+                  onClick={(e) => handleSectionLink(e, 'programs')}
+                  className="hover:text-primary transition-colors"
+                >
                   Fat-loss Training
                 </Link>
               </li>
               <li>
-                <Link to="/programs#personal-training" className="hover:text-primary transition-colors">
+                <Link
+                  to="/#programs"
+                  onClick={(e) => handleSectionLink(e, 'programs')}
+                  className="hover:text-primary transition-colors"
+                >
                   Personal Training
                 </Link>
               </li>
               <li>
-                <Link to="/programs#functional-fitness" className="hover:text-primary transition-colors">
+                <Link
+                  to="/#programs"
+                  onClick={(e) => handleSectionLink(e, 'programs')}
+                  className="hover:text-primary transition-colors"
+                >
                   Functional Fitness
                 </Link>
               </li>
@@ -81,12 +103,20 @@ export function Footer() {
             </span>
             <ul className="flex flex-col gap-2 font-body text-sm text-text-body">
               <li>
-                <Link to="/#facility" className="hover:text-primary transition-colors">
+                <Link
+                  to="/#facility"
+                  onClick={(e) => handleSectionLink(e, 'facility')}
+                  className="hover:text-primary transition-colors"
+                >
                   The Facility
                 </Link>
               </li>
               <li>
-                <Link to="/#about" className="hover:text-primary transition-colors">
+                <Link
+                  to="/#about"
+                  onClick={(e) => handleSectionLink(e, 'about')}
+                  className="hover:text-primary transition-colors"
+                >
                   Our Philosophy
                 </Link>
               </li>
@@ -100,17 +130,29 @@ export function Footer() {
             </span>
             <ul className="flex flex-col gap-2 font-body text-sm text-text-body">
               <li>
-                <Link to="/membership#monthly" className="hover:text-primary transition-colors">
+                <Link
+                  to="/#memberships"
+                  onClick={(e) => handleSectionLink(e, 'memberships')}
+                  className="hover:text-primary transition-colors"
+                >
                   Monthly Membership
                 </Link>
               </li>
               <li>
-                <Link to="/membership#quarterly" className="hover:text-primary transition-colors">
+                <Link
+                  to="/#memberships"
+                  onClick={(e) => handleSectionLink(e, 'memberships')}
+                  className="hover:text-primary transition-colors"
+                >
                   Quarterly Membership
                 </Link>
               </li>
               <li>
-                <Link to="/membership#annual" className="hover:text-primary transition-colors">
+                <Link
+                  to="/#memberships"
+                  onClick={(e) => handleSectionLink(e, 'memberships')}
+                  className="hover:text-primary transition-colors"
+                >
                   Annual Membership
                 </Link>
               </li>
@@ -124,14 +166,18 @@ export function Footer() {
             </span>
             <ul className="flex flex-col gap-2 font-body text-sm text-text-body mb-2">
               <li>
-                <Link to="/contact" className="hover:text-primary transition-colors">
+                <Link
+                  to="/#contact"
+                  onClick={(e) => handleSectionLink(e, 'contact')}
+                  className="hover:text-primary transition-colors"
+                >
                   Contact & Location
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/contact#trial"
-                  onClick={handleTrialClick}
+                  to="/#trial"
+                  onClick={(e) => handleSectionLink(e, 'trial')}
                   className="hover:text-primary transition-colors"
                 >
                   Free Trial Booking

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Hero } from '../components/Hero';
 import { About } from '../components/About';
 import { ProgramCard } from '../components/ProgramCard';
@@ -78,6 +79,17 @@ export function Home() {
             </SectionReveal>
           ))}
         </div>
+
+        {/* View All Programs Action */}
+        <div className="mt-space-lg flex justify-center">
+          <Link
+            to="/programs"
+            className="inline-flex items-center gap-2 border border-border bg-surface-card hover:border-primary text-text-heading hover:text-primary font-headline text-base uppercase font-bold px-6 py-3 tracking-wider transition-colors rounded-sm shadow-sm"
+          >
+            <span>View All Programs</span>
+            <Icon name="arrow_forward" size={18} />
+          </Link>
+        </div>
       </section>
 
       {/* 4. Coaching Faculty / Trainers Section */}
@@ -113,6 +125,17 @@ export function Home() {
               />
             </SectionReveal>
           ))}
+        </div>
+
+        {/* Meet All Coaches Action */}
+        <div className="mt-space-lg flex justify-center">
+          <Link
+            to="/trainers"
+            className="inline-flex items-center gap-2 border border-border bg-surface-card hover:border-primary text-text-heading hover:text-primary font-headline text-base uppercase font-bold px-6 py-3 tracking-wider transition-colors rounded-sm shadow-sm"
+          >
+            <span>Meet All Coaches</span>
+            <Icon name="arrow_forward" size={18} />
+          </Link>
         </div>
       </section>
 
@@ -153,6 +176,17 @@ export function Home() {
               />
             </SectionReveal>
           ))}
+        </div>
+
+        {/* Compare All Plans Action */}
+        <div className="mt-space-lg flex justify-center">
+          <Link
+            to="/membership"
+            className="inline-flex items-center gap-2 border border-border bg-surface-card hover:border-primary text-text-heading hover:text-primary font-headline text-base uppercase font-bold px-6 py-3 tracking-wider transition-colors rounded-sm shadow-sm"
+          >
+            <span>Compare All Plans & Full Matrix</span>
+            <Icon name="arrow_forward" size={18} />
+          </Link>
         </div>
       </section>
 
@@ -266,6 +300,17 @@ export function Home() {
         className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-space-xl border-b border-border"
       >
         <ContactInfo />
+
+        {/* Direct Dispatch & Full Contact Terminal Action */}
+        <div className="mt-space-lg flex justify-center">
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-2 border border-border bg-surface-card hover:border-primary text-text-heading hover:text-primary font-headline text-base uppercase font-bold px-6 py-3 tracking-wider transition-colors rounded-sm shadow-sm"
+          >
+            <span>Full Contact & Dispatch Terminal</span>
+            <Icon name="arrow_forward" size={18} />
+          </Link>
+        </div>
       </section>
 
       {/* 9. Frequently Enquired Questions (FAQ) */}

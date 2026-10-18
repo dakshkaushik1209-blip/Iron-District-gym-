@@ -2,46 +2,48 @@ import { useState, useEffect } from 'react';
 
 /**
  * ScrollSpy hook that detects the current visible section based on scroll position.
+ * Accounts for sticky header offset.
  * @param {string[]} sectionIds - Array of section DOM IDs to monitor
- * @param {number} [offset=120] - Header height offset in px
+ * @param {number} [offset=100] - Header height offset in px
  * @returns {string} - Active section ID
  */
-export function useScrollSpy(sectionIds = [], offset = 120) {
-  const [activeId, setActiveId] = useState('');
+export function useScrollSpy(sectionIds = [], offset = 100) {
+  const [activeId, setActiveId] = useState(sectionIds[0] || 'hero');
 
   useEffect(() => {
     if (typeof window === 'undefined' || !sectionIds.length) return;
 
     const handleScroll = () => {
-      const scrollPos = window.scrollY + offset;
+      // If user is near top of page, activate the first section (hero/home)
+      if (window.scrollY < 150) {
+        setActiveId(sectionIds[0]);
+        return;
+      }
 
-      // Find the current section
-      let currentSection = '';
+      // If user is near the bottom of document, activate the last section (contact)
+      if (
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 80
+      ) {
+        setActiveId(sectionIds[sectionIds.length - 1]);
+        return;
+      }
+
+      const scrollPos = window.scrollY + offset;
+      let currentSection = sectionIds[0];
 
       for (let i = 0; i < sectionIds.length; i++) {
         const id = sectionIds[i];
         const element = document.getElementById(id);
         if (element) {
-          const top = element.offsetTop;
-          const height = element.offsetHeight;
-          if (scrollPos >= top && scrollPos < top + height) {
+          const top = element.getBoundingClientRect().top + window.scrollY;
+          if (scrollPos >= top) {
             currentSection = id;
-            break;
           }
         }
       }
 
-      // If scrolled to near the bottom, select the last section
-      if (
-        window.innerHeight + window.scrollY >=
-        document.documentElement.scrollHeight - 50
-      ) {
-        currentSection = sectionIds[sectionIds.length - 1];
-      }
-
-      if (currentSection) {
-        setActiveId(currentSection);
-      }
+      setActiveId(currentSection);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });

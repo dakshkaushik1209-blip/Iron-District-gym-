@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useEffect } from 'react';
+import React, { Suspense, lazy, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Navbar } from './components/Navbar';
@@ -23,10 +23,26 @@ const NotFound = lazy(() => import('./pages/NotFound').then(m => ({ default: m.N
 // Scroll to top on route change or scroll to anchor target if hash is present
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
+  const prevPathname = useRef(pathname);
 
   useEffect(() => {
-    if (!hash) {
+    const isNewPage = prevPathname.current !== pathname;
+    prevPathname.current = pathname;
+
+    if (isNewPage) {
+      if (window.__lenis) {
+        window.__lenis.scrollTo(0, { immediate: true });
+      }
       window.scrollTo(0, 0);
+    }
+
+    if (!hash) {
+      if (!isNewPage) {
+        if (window.__lenis) {
+          window.__lenis.scrollTo(0, { immediate: true });
+        }
+        window.scrollTo(0, 0);
+      }
     } else {
       const targetId = hash.replace(/^#/, '');
       let cancelled = false;
@@ -35,13 +51,14 @@ function ScrollToTop() {
         if (cancelled) return;
         const element = document.getElementById(targetId);
         if (element) {
-          smoothScrollTo(element, -90);
-        } else if (attempts < 20) {
-          setTimeout(() => tryScroll(attempts + 1), 60);
+          smoothScrollTo(`#${targetId}`, -80);
+        } else if (attempts < 30) {
+          setTimeout(() => tryScroll(attempts + 1), 50);
         }
       };
 
-      const timer = setTimeout(() => tryScroll(0), 40);
+      const delay = isNewPage ? 500 : 50;
+      const timer = setTimeout(() => tryScroll(0), delay);
       return () => {
         cancelled = true;
         clearTimeout(timer);

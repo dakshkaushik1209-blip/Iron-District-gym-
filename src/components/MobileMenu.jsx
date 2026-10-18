@@ -5,8 +5,16 @@ import { SITE_CONFIG, MOTION_CONFIG } from '../lib/config';
 import { useReducedMotion } from '../hooks/useReducedMotion';
 import { Icon } from './Icon';
 
-export function MobileMenu({ isOpen, onClose, navLinks = [], onTrialClick }) {
+export function MobileMenu({
+  isOpen,
+  onClose,
+  navLinks = [],
+  activeSection,
+  onLinkClick,
+  onTrialClick,
+}) {
   const location = useLocation();
+  const isHomePage = location.pathname === '/';
   const menuRef = useRef(null);
   const closeBtnRef = useRef(null);
   const reducedMotion = useReducedMotion();
@@ -153,12 +161,28 @@ export function MobileMenu({ isOpen, onClose, navLinks = [], onTrialClick }) {
               className="flex flex-col gap-4"
             >
               {navLinks.map((link, idx) => {
-                const isActive = location.pathname === link.href;
+                const isSectionActive =
+                  isHomePage &&
+                  (activeSection === link.sectionId ||
+                    (link.sectionId === 'hero' && (!activeSection || activeSection === 'hero')));
+
+                const isRouteActive =
+                  !isHomePage &&
+                  ((location.pathname === '/programs' && link.sectionId === 'programs') ||
+                    (location.pathname === '/trainers' && link.sectionId === 'trainers') ||
+                    (location.pathname === '/membership' && link.sectionId === 'memberships') ||
+                    (location.pathname === '/contact' && link.sectionId === 'contact'));
+
+                const isActive = isSectionActive || isRouteActive;
+
                 return (
                   <motion.div key={link.name} variants={itemVariants}>
                     <Link
                       to={link.href}
-                      onClick={onClose}
+                      onClick={(e) => {
+                        onClose();
+                        if (onLinkClick) onLinkClick(e, link);
+                      }}
                       aria-current={isActive ? 'page' : undefined}
                       className={`font-headline text-3xl sm:text-4xl uppercase tracking-tight flex items-center justify-between group transition-colors ${
                         isActive ? 'text-primary font-bold' : 'text-white hover:text-primary'
@@ -191,7 +215,7 @@ export function MobileMenu({ isOpen, onClose, navLinks = [], onTrialClick }) {
           {/* Action & Status */}
           <div className="flex flex-col gap-4 pt-4 border-t border-border/40">
             <Link
-              to="/contact#trial"
+              to="/#trial"
               onClick={(e) => {
                 onClose();
                 if (onTrialClick) onTrialClick(e);
