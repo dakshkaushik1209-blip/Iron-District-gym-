@@ -12,7 +12,7 @@ export function Membership() {
   const activePlanId = location.hash ? location.hash.replace(/^#/, '') : null;
 
   const handleSelectPlan = (planId) => {
-    navigate(`/?plan=${planId}#trial`);
+    navigate(`/contact?plan=${planId}#trial`);
   };
 
   return (
@@ -190,7 +190,7 @@ export function Membership() {
             <div className="lg:col-span-6 flex flex-col gap-4">
               <button
                 type="button"
-                onClick={() => navigate('/#trial')}
+                onClick={() => navigate('/contact#trial')}
                 className="w-full py-4 bg-primary text-text-inverse hover:bg-primary-hover font-headline text-xl uppercase tracking-wider rounded-sm transition-all font-bold shadow-xl flex items-center justify-center gap-2"
               >
                 <span>BOOK A FREE TRIAL SESSION</span>

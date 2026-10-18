@@ -22,7 +22,7 @@ export function PricingCard({ plan, onSelectPlan, isHighlighted }) {
         new CustomEvent('iron-district-plan-selected', { detail: plan.id })
       );
     } else {
-      navigate(`/?plan=${plan.id}#trial`);
+      navigate(`/contact?plan=${plan.id}#trial`);
     }
   };
 

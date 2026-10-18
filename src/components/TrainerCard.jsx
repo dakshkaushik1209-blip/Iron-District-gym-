@@ -20,7 +20,7 @@ export function TrainerCard({ trainer, onBookSession }) {
         new CustomEvent('iron-district-trainer-selected', { detail: trainer.name })
       );
     } else {
-      navigate(`/?trainer=${encodeURIComponent(trainer.name)}#trial`);
+      navigate(`/contact?trainer=${encodeURIComponent(trainer.name)}#trial`);
     }
   };
 

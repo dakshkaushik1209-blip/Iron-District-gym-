@@ -5,18 +5,17 @@ import { SITE_CONFIG } from '../lib/config';
 import { smoothScrollTo } from '../hooks/useLenis';
 
 const NAV_LINKS = [
-  { name: 'Home', href: '/', sectionId: 'hero' },
-  { name: 'Programs', href: '/programs', sectionId: 'programs' },
-  { name: 'Trainers', href: '/trainers', sectionId: 'trainers' },
-  { name: 'Membership', href: '/membership', sectionId: 'memberships' },
-  { name: 'Contact', href: '/contact', sectionId: 'contact' },
+  { name: 'Home', href: '/' },
+  { name: 'Programs', href: '/programs' },
+  { name: 'Trainers', href: '/trainers' },
+  { name: 'Membership', href: '/membership' },
+  { name: 'Contact', href: '/contact' },
 ];
 
-export function Navbar({ activeSection = '' }) {
+export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
-  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,12 +28,13 @@ export function Navbar({ activeSection = '' }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleLinkClick = (e, link) => {
-    if (isHomePage && link.sectionId) {
-      const targetElement = document.getElementById(link.sectionId);
-      if (targetElement) {
-        e.preventDefault();
-        smoothScrollTo(`#${link.sectionId}`, -80);
+  const handleTrialClick = (e) => {
+    const trialElement = document.getElementById('trial');
+    if (trialElement) {
+      e.preventDefault();
+      smoothScrollTo('#trial', -80);
+      if (window.location.hash !== '#trial') {
+        window.history.pushState(null, '', `${window.location.pathname}#trial`);
       }
     }
   };
@@ -60,9 +60,8 @@ export function Navbar({ activeSection = '' }) {
           {/* Brand Identity */}
           <Link
             to="/"
-            onClick={(e) => {
-              if (isHomePage) {
-                e.preventDefault();
+            onClick={() => {
+              if (location.pathname === '/') {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }
             }}
@@ -79,21 +78,23 @@ export function Navbar({ activeSection = '' }) {
             </div>
           </Link>
 
-          {/* Desktop Navigation with Scroll-Spy & Active Indication */}
+          {/* Desktop Navigation with Route-Based Active Highlighting */}
           <nav
             aria-label="Primary Navigation"
             className="hidden md:flex items-center gap-6 lg:gap-8"
           >
             {NAV_LINKS.map((link) => {
-              const isSectionActive = isHomePage && activeSection === link.sectionId;
-              const isRouteActive = !isHomePage && location.pathname === link.href;
-              const isActive = isSectionActive || isRouteActive;
+              const isActive = location.pathname === link.href;
 
               return (
                 <Link
                   key={link.name}
                   to={link.href}
-                  onClick={(e) => handleLinkClick(e, link)}
+                  onClick={() => {
+                    if (location.pathname === link.href) {
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                  }}
                   aria-current={isActive ? 'page' : undefined}
                   className={`font-headline text-lg uppercase tracking-wide transition-colors relative py-1 ${
                     isActive
@@ -113,13 +114,8 @@ export function Navbar({ activeSection = '' }) {
           {/* Action CTAs */}
           <div className="flex items-center gap-space-md">
             <Link
-              to="/#trial"
-              onClick={(e) => {
-                if (isHomePage) {
-                  e.preventDefault();
-                  smoothScrollTo('#trial', -80);
-                }
-              }}
+              to="/contact#trial"
+              onClick={handleTrialClick}
               className="hidden sm:inline-flex items-center justify-center bg-primary text-text-inverse font-headline text-base uppercase tracking-wider px-5 py-2 rounded-sm hover:bg-primary-hover active:scale-[0.98] transition-all font-bold shadow-md"
             >
               Book a Free Trial
@@ -145,6 +141,7 @@ export function Navbar({ activeSection = '' }) {
         isOpen={isMobileMenuOpen}
         onClose={() => setIsMobileMenuOpen(false)}
         navLinks={NAV_LINKS}
+        onTrialClick={handleTrialClick}
       />
     </>
   );

@@ -11,6 +11,23 @@ const PLAN_LABELS = {
   annual: 'Annual Membership',
 };
 
+export const normalizeProgramId = (id) => {
+  if (!id) return '';
+  const map = {
+    strength: 'strength-training',
+    'strength-training': 'strength-training',
+    'muscle-building': 'muscle-building',
+    hypertrophy: 'muscle-building',
+    'fat-loss': 'fat-loss-training',
+    'fat-loss-training': 'fat-loss-training',
+    personal: 'personal-training',
+    'personal-training': 'personal-training',
+    functional: 'functional-fitness',
+    'functional-fitness': 'functional-fitness',
+  };
+  return map[id.toLowerCase()] || id;
+};
+
 export function TrialForm({ initialProgram = '', initialPlan = '', initialTrainer = '' }) {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -20,10 +37,10 @@ export function TrialForm({ initialProgram = '', initialPlan = '', initialTraine
   const urlTrainer = searchParams.get('trainer');
 
   const getInitialProgram = () => {
-    if (initialProgram) return initialProgram;
-    if (urlProgram) return urlProgram;
-    if (initialPlan || urlPlan) return 'strength';
-    if (initialTrainer || urlTrainer) return 'personal';
+    if (initialProgram) return normalizeProgramId(initialProgram);
+    if (urlProgram) return normalizeProgramId(urlProgram);
+    if (initialPlan || urlPlan) return 'strength-training';
+    if (initialTrainer || urlTrainer) return 'personal-training';
     return '';
   };
 
@@ -59,7 +76,7 @@ export function TrialForm({ initialProgram = '', initialPlan = '', initialTraine
   useEffect(() => {
     const handleProgramSelect = (e) => {
       if (e.detail) {
-        setValues((prev) => ({ ...prev, program: e.detail }));
+        setValues((prev) => ({ ...prev, program: normalizeProgramId(e.detail) }));
       }
     };
     const handlePlanSelect = (e) => {
@@ -67,7 +84,7 @@ export function TrialForm({ initialProgram = '', initialPlan = '', initialTraine
         setValues((prev) => ({
           ...prev,
           plan: e.detail,
-          program: prev.program || 'strength',
+          program: prev.program || 'strength-training',
         }));
       }
     };
@@ -76,7 +93,7 @@ export function TrialForm({ initialProgram = '', initialPlan = '', initialTraine
         setValues((prev) => ({
           ...prev,
           trainer: e.detail,
-          program: prev.program || 'personal',
+          program: prev.program || 'personal-training',
         }));
       }
     };
@@ -95,16 +112,22 @@ export function TrialForm({ initialProgram = '', initialPlan = '', initialTraine
   // Sync with prop changes when parent passes selected program, plan, or trainer
   useEffect(() => {
     if (initialProgram) {
-      setValues((prev) => ({ ...prev, program: initialProgram }));
+      setValues((prev) => ({ ...prev, program: normalizeProgramId(initialProgram) }));
     }
   }, [initialProgram]);
+
+  useEffect(() => {
+    if (urlProgram) {
+      setValues((prev) => ({ ...prev, program: normalizeProgramId(urlProgram) }));
+    }
+  }, [urlProgram]);
 
   useEffect(() => {
     if (initialPlan) {
       setValues((prev) => ({
         ...prev,
         plan: initialPlan,
-        program: prev.program || 'strength',
+        program: prev.program || 'strength-training',
       }));
     }
   }, [initialPlan]);
@@ -114,7 +137,7 @@ export function TrialForm({ initialProgram = '', initialPlan = '', initialTraine
       setValues((prev) => ({
         ...prev,
         trainer: initialTrainer,
-        program: prev.program || 'personal',
+        program: prev.program || 'personal-training',
       }));
     }
   }, [initialTrainer]);

@@ -47,16 +47,12 @@ export default async function handler(req, res) {
     // 5. Parse and sanitize body
     const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body || {};
 
-    // 6. Honeypot check: reject spam silently
+    // 6. Honeypot check: reject spam
     if (body.hp && String(body.hp).trim() !== '') {
       console.warn(`[SPAM DETECTED] Honeypot triggered from IP hash: ${ipHash.slice(0, 8)}`);
-      // Return 200 generic success without database or email actions
-      return res.status(200).json({
-        success: true,
-        message: 'Request received and processed',
-        data: {
-          ticketId: `ID-TR-${Math.floor(10000 + Math.random() * 90000)}`,
-        },
+      return res.status(400).json({
+        error: 'Bad Request',
+        message: 'Invalid submission',
       });
     }
 
@@ -80,15 +76,34 @@ export default async function handler(req, res) {
 
     const { name, phone, program, preferred_date, plan, trainer, notes } = validation.data;
     const cleanPhone = sanitizePhone(phone);
-    const ticketId = `ID-TR-${Math.floor(10000 + Math.random() * 90000)}`;
 
-    let recordSaved = false;
-    let savedRecordId = ticketId;
+    // Environment check: Restrict "Demo Mode" to local development only
+    const isLocalDev = process.env.VERCEL_ENV === undefined || process.env.VERCEL_ENV === 'development';
 
-    // 8. Database Insert: Supabase
     const supabaseUrl = process.env.SUPABASE_URL;
     const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+    const resendApiKey = process.env.RESEND_API_KEY;
 
+    // In production or preview, all required keys must be present
+    if (!isLocalDev) {
+      if (!supabaseUrl || !supabaseServiceKey || !resendApiKey) {
+        const missing = [];
+        if (!supabaseUrl) missing.push('SUPABASE_URL');
+        if (!supabaseServiceKey) missing.push('SUPABASE_SERVICE_ROLE_KEY');
+        if (!resendApiKey) missing.push('RESEND_API_KEY');
+
+        console.error(`[CONFIG ERROR] Missing required environment variables in ${process.env.VERCEL_ENV}: ${missing.join(', ')}`);
+        return res.status(500).json({
+          error: 'Server Configuration Error',
+          message: 'Server configuration error: missing required credentials.',
+        });
+      }
+    }
+
+    let recordSaved = false;
+    let savedRecordId = null;
+
+    // 8. Database Insert: Supabase
     if (supabaseUrl && supabaseServiceKey) {
       const supabase = createClient(supabaseUrl, supabaseServiceKey, {
         auth: { persistSession: false },
@@ -120,18 +135,40 @@ export default async function handler(req, res) {
         });
       }
 
-      recordSaved = true;
       if (dbData?.id) {
+        recordSaved = true;
         savedRecordId = `ID-TR-${String(dbData.id).slice(0, 5).toUpperCase()}`;
+      } else {
+        console.error('[SUPABASE ERROR] Insert succeeded but no record ID was returned.');
+        return res.status(500).json({
+          error: 'Database Error',
+          message: 'Failed to verify reservation record in database.',
+        });
       }
-    } else {
-      // In development / demo environment without keys configured, log cleanly and mock success
-      console.warn('[DEMO ENVIRONMENT] Supabase credentials not set in environment. Mocking insert for testing.');
+    } else if (isLocalDev) {
+      // Demo Mode: restricted to local development only (VERCEL_ENV is undefined or "development")
+      console.warn('[DEMO MODE] Running in local development without Supabase keys. Mocking ticket generation.');
       recordSaved = true;
+      savedRecordId = `ID-TR-${Math.floor(10000 + Math.random() * 90000)}`;
+    } else {
+      // In production or preview, never reach here without keys or database insert
+      console.error('[SERVER ERROR] Missing database credentials outside local development.');
+      return res.status(500).json({
+        error: 'Server Configuration Error',
+        message: 'Database service is unavailable.',
+      });
+    }
+
+    // Safety guard: Never return a generated ticket or success response unless record was saved
+    if (!recordSaved || !savedRecordId) {
+      console.error('[SERVER ERROR] Cannot return success: record was not saved in Supabase.');
+      return res.status(500).json({
+        error: 'Database Error',
+        message: 'Trial reservation could not be verified in database.',
+      });
     }
 
     // 9. Send Notification Email via Resend
-    const resendApiKey = process.env.RESEND_API_KEY;
     const notifyEmailTo = process.env.NOTIFY_EMAIL_TO;
     const notifyEmailFrom = process.env.NOTIFY_EMAIL_FROM || 'onboarding@resend.dev';
 
@@ -215,8 +252,8 @@ export default async function handler(req, res) {
       } catch (emailErr) {
         console.error('[RESEND ERROR] Failed to send email notification:', emailErr);
       }
-    } else {
-      console.warn('[DEMO ENVIRONMENT] Resend credentials not set. Skipping email dispatch.');
+    } else if (isLocalDev) {
+      console.warn('[DEMO MODE] Resend credentials not set. Skipping email dispatch.');
     }
 
     // 10. Success Response

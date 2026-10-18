@@ -21,7 +21,7 @@ export function ProgramCard({ program, isFeatured = false, onSelectProgram }) {
         new CustomEvent('iron-district-program-selected', { detail: program.id })
       );
     } else {
-      navigate(`/?program=${program.id}#trial`);
+      navigate(`/contact?program=${program.id}#trial`);
     }
   };
 

@@ -1,19 +1,22 @@
 /**
  * 5 Core Training Programs for Iron District Fitness.
- * Single source of truth for program cards, dropdowns, and descriptions.
+ * Single source of truth for program cards, dropdowns, descriptions, and filter tabs.
  * Exactly 2 short sentences per program description in clear, direct English.
  */
 
 export const programs = [
   {
-    id: 'strength',
+    id: 'strength-training',
+    shortId: 'strength',
+    slug: 'strength-training',
+    category: 'strength-training',
+    aliases: ['strength'],
     index: '01',
     title: 'Strength Training',
     tagline: 'Compound Barbell Foundations',
     badge: 'PRIMARY DISCIPLINE // 01',
     spec: 'BARBELL FOUNDATIONS',
-    category: 'strength',
-    categoryLabel: 'BARBELL // POWER',
+    categoryLabel: 'Strength Training',
     intensity: 'RPE 7.5–9.5',
     duration: '75–90 MIN',
     frequency: '3–5X / WK',
@@ -35,13 +38,16 @@ export const programs = [
   },
   {
     id: 'muscle-building',
+    shortId: 'muscle-building',
+    slug: 'muscle-building',
+    category: 'muscle-building',
+    aliases: ['hypertrophy'],
     index: '02',
     title: 'Muscle Building',
     tagline: 'Hypertrophy Protocols',
     badge: '[02 / HYPERTROPHY]',
     spec: 'TARGETED HYPERTROPHY',
-    category: 'muscle-building',
-    categoryLabel: 'HYPERTROPHY LAB',
+    categoryLabel: 'Muscle Building',
     intensity: 'RPE 8.0–10',
     duration: '60–75 MIN',
     frequency: '4–6X / WK',
@@ -62,14 +68,17 @@ export const programs = [
     isFeatured: false,
   },
   {
-    id: 'fat-loss',
+    id: 'fat-loss-training',
+    shortId: 'fat-loss',
+    slug: 'fat-loss-training',
+    category: 'fat-loss-training',
+    aliases: ['fat-loss'],
     index: '03',
     title: 'Fat-loss Training',
     tagline: 'Metabolic Conditioning',
     badge: '[03 / CONDITIONING]',
     spec: 'ENERGY SYSTEMS',
-    category: 'fat-loss',
-    categoryLabel: 'METABOLIC',
+    categoryLabel: 'Fat-loss Training',
     intensity: 'HIGH WORK CAPACITY',
     duration: '45–60 MIN',
     frequency: '3–4X / WK',
@@ -90,14 +99,17 @@ export const programs = [
     isFeatured: false,
   },
   {
-    id: 'personal',
+    id: 'personal-training',
+    shortId: 'personal',
+    slug: 'personal-training',
+    category: 'personal-training',
+    aliases: ['personal'],
     index: '04',
     title: 'Personal Training',
     tagline: '1-on-1 Dedicated Coaching',
-    badge: '[04 / 1-ON-1 COACHING]',
+    badge: '[04 / PERSONAL TRAINING]',
     spec: 'CUSTOM COACHING',
-    category: 'personal',
-    categoryLabel: '1-ON-1 COACHING',
+    categoryLabel: 'Personal Training',
     intensity: 'TAILORED TO ATHLETE',
     duration: '60 MIN',
     frequency: 'CUSTOM SCHEDULE',
@@ -118,31 +130,48 @@ export const programs = [
     isFeatured: false,
   },
   {
-    id: 'functional',
+    id: 'functional-fitness',
+    shortId: 'functional',
+    slug: 'functional-fitness',
+    category: 'functional-fitness',
+    aliases: ['functional'],
     index: '05',
     title: 'Functional Fitness',
-    tagline: 'Strongman & Durability',
+    tagline: 'Functional Conditioning & Durability',
     badge: '[05 / DURABILITY]',
-    spec: 'STRONGMAN & RESILIENCE',
-    category: 'functional',
-    categoryLabel: 'STRONGMAN & DURABILITY',
+    spec: 'PRACTICAL RESILIENCE',
+    categoryLabel: 'Functional Fitness',
     intensity: 'WHOLE-BODY STRENGTH',
     duration: '60–75 MIN',
     frequency: '3–4X / WK',
     equipment: 'ODD OBJECTS / SANDBAGS',
     description:
-      'Train with strongman implements, heavy sandbags, farmer carries, and odd objects. Build practical grip strength, core stability, and durable everyday athleticism.',
+      'Train with heavy sandbags, farmer carries, sleds, and odd objects. Build practical grip strength, core stability, and durable everyday athleticism.',
     target:
       'Athletes looking for durable core strength, functional carries, and raw utility beyond traditional barbells.',
     movements: [
       'STONE LIFTS',
       'SANDBAG TO SHOULDER',
       'LOG PRESS',
-      'YOKE WALKS',
+      'FARMER CARRIES',
     ],
     image:
       'https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?q=80&w=1200&auto=format&fit=crop',
-    alt: 'Strongman athlete lifting heavy stones on concrete floor with chalk in air',
+    alt: 'Athlete lifting heavy stones on concrete floor with chalk in air',
     isFeatured: false,
   },
+];
+
+/**
+ * Filter tabs generated dynamically from programs data.
+ * Exactly matches required tab labels:
+ * "All programs", "Strength Training", "Muscle Building", "Fat-loss Training", "Personal Training", "Functional Fitness".
+ */
+export const programTabs = [
+  { id: 'all', slug: 'all', label: 'All programs' },
+  ...programs.map((p) => ({
+    id: p.slug,
+    slug: p.slug,
+    label: p.title,
+  })),
 ];

@@ -5,7 +5,7 @@ import { SITE_CONFIG, MOTION_CONFIG } from '../lib/config';
 import { useReducedMotion } from '../hooks/useReducedMotion';
 import { Icon } from './Icon';
 
-export function MobileMenu({ isOpen, onClose, navLinks = [] }) {
+export function MobileMenu({ isOpen, onClose, navLinks = [], onTrialClick }) {
   const location = useLocation();
   const menuRef = useRef(null);
   const closeBtnRef = useRef(null);
@@ -152,31 +152,50 @@ export function MobileMenu({ isOpen, onClose, navLinks = [] }) {
               animate="open"
               className="flex flex-col gap-4"
             >
-              {navLinks.map((link, idx) => (
-                <motion.div key={link.name} variants={itemVariants}>
-                  <Link
-                    to={link.href}
-                    onClick={onClose}
-                    className="font-headline text-3xl sm:text-4xl uppercase text-white hover:text-primary transition-colors tracking-tight flex items-center justify-between group"
-                  >
-                    <span>
-                      <span className="font-mono text-sm text-text-muted mr-3 group-hover:text-primary transition-colors">
-                        0{idx + 1}.
+              {navLinks.map((link, idx) => {
+                const isActive = location.pathname === link.href;
+                return (
+                  <motion.div key={link.name} variants={itemVariants}>
+                    <Link
+                      to={link.href}
+                      onClick={onClose}
+                      aria-current={isActive ? 'page' : undefined}
+                      className={`font-headline text-3xl sm:text-4xl uppercase tracking-tight flex items-center justify-between group transition-colors ${
+                        isActive ? 'text-primary font-bold' : 'text-white hover:text-primary'
+                      }`}
+                    >
+                      <span>
+                        <span
+                          className={`font-mono text-sm mr-3 transition-colors ${
+                            isActive ? 'text-primary' : 'text-text-muted group-hover:text-primary'
+                          }`}
+                        >
+                          0{idx + 1}.
+                        </span>
+                        {link.name}
                       </span>
-                      {link.name}
-                    </span>
-                    <Icon name="arrow_forward" size={20} className="text-border group-hover:text-primary group-hover:translate-x-1 transition-all" />
-                  </Link>
-                </motion.div>
-              ))}
+                      <Icon
+                        name="arrow_forward"
+                        size={20}
+                        className={`${
+                          isActive ? 'text-primary' : 'text-border group-hover:text-primary'
+                        } group-hover:translate-x-1 transition-all`}
+                      />
+                    </Link>
+                  </motion.div>
+                );
+              })}
             </motion.nav>
           </div>
 
           {/* Action & Status */}
           <div className="flex flex-col gap-4 pt-4 border-t border-border/40">
             <Link
-              to="/#trial"
-              onClick={onClose}
+              to="/contact#trial"
+              onClick={(e) => {
+                onClose();
+                if (onTrialClick) onTrialClick(e);
+              }}
               className="w-full h-12 bg-primary text-text-inverse font-headline text-lg uppercase font-bold flex items-center justify-center tracking-wider hover:bg-primary-hover active:scale-[0.99] transition-all rounded-sm shadow-md"
             >
               BOOK A FREE TRIAL PASS

@@ -1,10 +1,13 @@
 import React, { Suspense, lazy, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { MobileBottomBar } from './components/MobileBottomBar';
 import { WhatsAppButton } from './components/WhatsAppButton';
 import { useLenis, smoothScrollTo } from './hooks/useLenis';
+import { TRANSITIONS } from './lib/config';
+import { useReducedMotion } from './hooks/useReducedMotion';
 
 // Lazy-loaded pages for code splitting & high Lighthouse performance
 const Home = lazy(() => import('./pages/Home').then(m => ({ default: m.Home })));
@@ -33,8 +36,8 @@ function ScrollToTop() {
         const element = document.getElementById(targetId);
         if (element) {
           smoothScrollTo(element, -90);
-        } else if (attempts < 12) {
-          setTimeout(() => tryScroll(attempts + 1), 80);
+        } else if (attempts < 20) {
+          setTimeout(() => tryScroll(attempts + 1), 60);
         }
       };
 
@@ -61,6 +64,37 @@ function PageLoader() {
   );
 }
 
+// Route manager with standard page transition
+function AnimatedRoutes() {
+  const location = useLocation();
+  const reducedMotion = useReducedMotion();
+
+  return (
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={location.pathname}
+        initial={reducedMotion ? false : TRANSITIONS.page.initial}
+        animate={TRANSITIONS.page.animate}
+        exit={reducedMotion ? undefined : TRANSITIONS.page.exit}
+        transition={reducedMotion ? { duration: 0 } : TRANSITIONS.page.transition}
+        className="w-full flex-1 flex flex-col"
+      >
+        <Routes location={location}>
+          <Route path="/" element={<Home />} />
+          <Route path="/programs" element={<Programs />} />
+          <Route path="/trainers" element={<Trainers />} />
+          <Route path="/membership" element={<Membership />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/success" element={<Success />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </motion.div>
+    </AnimatePresence>
+  );
+}
+
 function MainLayout() {
   // Initialize Lenis smooth scroll
   useLenis();
@@ -75,17 +109,7 @@ function MainLayout() {
       {/* Main Page Body */}
       <main id="main-content" tabIndex="-1" className="flex-1 w-full outline-none">
         <Suspense fallback={<PageLoader />}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/programs" element={<Programs />} />
-            <Route path="/trainers" element={<Trainers />} />
-            <Route path="/membership" element={<Membership />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/success" element={<Success />} />
-            <Route path="/terms" element={<Terms />} />
-            <Route path="/privacy" element={<Privacy />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <AnimatedRoutes />
         </Suspense>
       </main>
 

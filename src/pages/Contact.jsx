@@ -48,7 +48,7 @@ export function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
           {/* Left Column: Trial Booking Terminal (7 cols) */}
           <SectionReveal className="lg:col-span-7 flex flex-col gap-6">
-            <div className="border border-border bg-surface-card p-6 sm:p-8 rounded-sm">
+            <div id="trial" className="border border-border bg-surface-card p-6 sm:p-8 rounded-sm scroll-mt-28">
               <div className="mb-6">
                 <span className="font-mono text-xs text-primary uppercase tracking-widest font-bold block mb-1">
                   // DISPATCH SPECIFICATION // SEC-04 REGISTRATION

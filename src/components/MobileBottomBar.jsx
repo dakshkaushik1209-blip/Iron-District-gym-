@@ -7,11 +7,12 @@ export function MobileBottomBar() {
   const isHomePage = location.pathname === '/';
 
   const handleClick = (e) => {
-    if (isHomePage) {
-      const trialSection = document.getElementById('trial');
-      if (trialSection) {
-        e.preventDefault();
-        smoothScrollTo('#trial', -80);
+    const trialSection = document.getElementById('trial');
+    if (trialSection) {
+      e.preventDefault();
+      smoothScrollTo('#trial', -80);
+      if (window.location.hash !== '#trial') {
+        window.history.pushState(null, '', `${window.location.pathname}#trial`);
       }
     }
   };
@@ -31,7 +32,7 @@ export function MobileBottomBar() {
         </div>
 
         <Link
-          to="/#trial"
+          to="/contact#trial"
           onClick={handleClick}
           className="w-full h-11 bg-primary active:bg-primary-hover text-text-inverse font-headline text-base uppercase font-bold flex items-center justify-center tracking-wider transition-colors rounded-sm shadow-md"
         >

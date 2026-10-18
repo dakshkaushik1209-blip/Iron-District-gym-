@@ -2,8 +2,20 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { SITE_CONFIG } from '../lib/config';
 import { FooterWordmark } from './FooterWordmark';
+import { smoothScrollTo } from '../hooks/useLenis';
 
 export function Footer() {
+  const handleTrialClick = (e) => {
+    const trialSection = document.getElementById('trial');
+    if (trialSection) {
+      e.preventDefault();
+      smoothScrollTo('#trial', -80);
+      if (window.location.hash !== '#trial') {
+        window.history.pushState(null, '', `${window.location.pathname}#trial`);
+      }
+    }
+  };
+
   return (
     <footer className="w-full bg-[#0A0A0A] border-t border-border mt-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-space-xl">
@@ -35,7 +47,7 @@ export function Footer() {
             </span>
             <ul className="flex flex-col gap-2 font-body text-sm text-text-body">
               <li>
-                <Link to="/programs#strength" className="hover:text-primary transition-colors">
+                <Link to="/programs#strength-training" className="hover:text-primary transition-colors">
                   Strength Training
                 </Link>
               </li>
@@ -45,17 +57,17 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/programs#fat-loss" className="hover:text-primary transition-colors">
+                <Link to="/programs#fat-loss-training" className="hover:text-primary transition-colors">
                   Fat-loss Training
                 </Link>
               </li>
               <li>
-                <Link to="/programs#personal" className="hover:text-primary transition-colors">
+                <Link to="/programs#personal-training" className="hover:text-primary transition-colors">
                   Personal Training
                 </Link>
               </li>
               <li>
-                <Link to="/programs#functional" className="hover:text-primary transition-colors">
+                <Link to="/programs#functional-fitness" className="hover:text-primary transition-colors">
                   Functional Fitness
                 </Link>
               </li>
@@ -117,7 +129,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/#trial" className="hover:text-primary transition-colors">
+                <Link
+                  to="/contact#trial"
+                  onClick={handleTrialClick}
+                  className="hover:text-primary transition-colors"
+                >
                   Free Trial Booking
                 </Link>
               </li>

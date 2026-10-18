@@ -24,7 +24,7 @@ export function Trainers() {
       : trainers.filter((t) => t.discipline === activeDiscipline);
 
   const handleBookSession = (trainerName) => {
-    navigate(`/?trainer=${encodeURIComponent(trainerName)}#trial`);
+    navigate(`/contact?trainer=${encodeURIComponent(trainerName)}#trial`);
   };
 
   return (

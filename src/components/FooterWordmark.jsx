@@ -121,10 +121,17 @@ export function FooterWordmark() {
           <motion.radialGradient
             id="footer-wordmark-reveal-mask"
             gradientUnits="userSpaceOnUse"
+            cx={maskPosition.cx || '50%'}
+            cy={maskPosition.cy || '50%'}
             r={hovered ? '24%' : '0%'}
+            initial={{
+              cx: '50%',
+              cy: '50%',
+              r: '0%',
+            }}
             animate={{
-              cx: maskPosition.cx,
-              cy: maskPosition.cy,
+              cx: maskPosition.cx || '50%',
+              cy: maskPosition.cy || '50%',
               r: hovered ? '24%' : '0%',
             }}
             transition={{ duration: hovered ? 0.12 : 0.35, ease: 'easeOut' }}

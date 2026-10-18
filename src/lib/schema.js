@@ -1,17 +1,21 @@
 import { z } from 'zod';
 
 export const PROGRAMS = [
-  { id: 'strength', name: 'Strength Training' },
+  { id: 'strength-training', name: 'Strength Training' },
   { id: 'muscle-building', name: 'Muscle Building' },
-  { id: 'fat-loss', name: 'Fat-loss Training' },
-  { id: 'personal', name: 'Personal Training' },
-  { id: 'functional', name: 'Functional Fitness' },
+  { id: 'fat-loss-training', name: 'Fat-loss Training' },
+  { id: 'personal-training', name: 'Personal Training' },
+  { id: 'functional-fitness', name: 'Functional Fitness' },
 ];
 
 export const PROGRAM_IDS = [
-  'strength',
+  'strength-training',
   'muscle-building',
-  'hypertrophy', // Backward-compatibility alias for muscle-building
+  'fat-loss-training',
+  'personal-training',
+  'functional-fitness',
+  'strength',
+  'hypertrophy',
   'fat-loss',
   'personal',
   'functional',
