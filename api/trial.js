@@ -137,7 +137,7 @@ export default async function handler(req, res) {
 
       if (dbData?.id) {
         recordSaved = true;
-        savedRecordId = `ID-TR-${String(dbData.id).slice(0, 5).toUpperCase()}`;
+        savedRecordId = String(dbData.id).slice(0, 8);
       } else {
         console.error('[SUPABASE ERROR] Insert succeeded but no record ID was returned.');
         return res.status(500).json({
@@ -147,9 +147,9 @@ export default async function handler(req, res) {
       }
     } else if (isLocalDev) {
       // Demo Mode: restricted to local development only (VERCEL_ENV is undefined or "development")
-      console.warn('[DEMO MODE] Running in local development without Supabase keys. Mocking ticket generation.');
+      console.warn('[DEMO MODE] Running in local development without Supabase keys.');
       recordSaved = true;
-      savedRecordId = `ID-TR-${Math.floor(10000 + Math.random() * 90000)}`;
+      savedRecordId = crypto.randomUUID().slice(0, 8);
     } else {
       // In production or preview, never reach here without keys or database insert
       console.error('[SERVER ERROR] Missing database credentials outside local development.');
@@ -179,18 +179,18 @@ export default async function handler(req, res) {
         const emailHtml = `
           <div style="background-color: #0A0A0A; color: #FFFFFF; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; padding: 32px; border-radius: 4px; max-width: 600px; margin: 0 auto; border: 1px solid #262626;">
             <div style="border-bottom: 2px solid #FF5A1F; padding-bottom: 16px; margin-bottom: 24px;">
-              <span style="color: #FF5A1F; font-size: 12px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase;">// BOOKING DISPATCH</span>
-              <h1 style="color: #FFFFFF; font-size: 28px; font-weight: 800; margin: 8px 0 0; text-transform: uppercase;">New Free Trial Reservation</h1>
+              <span style="color: #FF5A1F; font-size: 12px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase;">// TRIAL REQUEST</span>
+              <h1 style="color: #FFFFFF; font-size: 28px; font-weight: 800; margin: 8px 0 0; text-transform: uppercase;">New Free Trial Request</h1>
             </div>
 
             <p style="color: #A3A3A3; font-size: 15px; line-height: 1.6;">
-              A prospective member has booked a complimentary trial session:
+              A visitor has submitted a free trial request:
             </p>
 
             <table style="width: 100%; border-collapse: collapse; margin: 24px 0; background-color: #141414; border: 1px solid #262626;">
               <tbody>
                 <tr style="border-bottom: 1px solid #262626;">
-                  <td style="padding: 12px 16px; color: #737373; font-size: 13px; font-weight: bold; width: 35%;">TICKET ID</td>
+                  <td style="padding: 12px 16px; color: #737373; font-size: 13px; font-weight: bold; width: 35%;">REQUEST ID</td>
                   <td style="padding: 12px 16px; color: #FF5A1F; font-size: 14px; font-weight: bold;">${savedRecordId}</td>
                 </tr>
                 <tr style="border-bottom: 1px solid #262626;">
@@ -198,7 +198,7 @@ export default async function handler(req, res) {
                   <td style="padding: 12px 16px; color: #FFFFFF; font-size: 14px; font-weight: bold;">${name}</td>
                 </tr>
                 <tr style="border-bottom: 1px solid #262626;">
-                  <td style="padding: 12px 16px; color: #737373; font-size: 13px; font-weight: bold;">TELEPHONE</td>
+                  <td style="padding: 12px 16px; color: #737373; font-size: 13px; font-weight: bold;">PHONE</td>
                   <td style="padding: 12px 16px; color: #FFFFFF; font-size: 14px;"><a href="tel:${cleanPhone}" style="color: #FF5A1F; text-decoration: none;">${phone}</a></td>
                 </tr>
                 <tr style="border-bottom: 1px solid #262626;">
@@ -212,7 +212,7 @@ export default async function handler(req, res) {
                 ${
                   plan
                     ? `<tr style="border-bottom: 1px solid #262626;">
-                        <td style="padding: 12px 16px; color: #737373; font-size: 13px; font-weight: bold;">INTERESTED TIER</td>
+                        <td style="padding: 12px 16px; color: #737373; font-size: 13px; font-weight: bold;">PLAN</td>
                         <td style="padding: 12px 16px; color: #FFFFFF; font-size: 14px;">${plan}</td>
                       </tr>`
                     : ''
@@ -220,7 +220,7 @@ export default async function handler(req, res) {
                 ${
                   trainer
                     ? `<tr style="border-bottom: 1px solid #262626;">
-                        <td style="padding: 12px 16px; color: #737373; font-size: 13px; font-weight: bold;">COACH REQUEST</td>
+                        <td style="padding: 12px 16px; color: #737373; font-size: 13px; font-weight: bold;">TRAINER</td>
                         <td style="padding: 12px 16px; color: #FFFFFF; font-size: 14px;">${trainer}</td>
                       </tr>`
                     : ''
@@ -246,7 +246,7 @@ export default async function handler(req, res) {
         await resend.emails.send({
           from: notifyEmailFrom,
           to: notifyEmailTo,
-          subject: `[Iron District] Free Trial Booking: ${name} (${program})`,
+          subject: `[Iron District] Free Trial Request: ${name} (${program})`,
           html: emailHtml,
         });
       } catch (emailErr) {
@@ -259,10 +259,13 @@ export default async function handler(req, res) {
     // 10. Success Response
     return res.status(201).json({
       success: true,
-      message: 'Platform trial reservation confirmed',
+      message: 'Platform trial request received',
       data: {
-        ticketId: savedRecordId,
+        id: savedRecordId,
+        referenceId: savedRecordId,
+        requestId: savedRecordId,
         name,
+        phone: cleanPhone,
         program,
         preferred_date,
         plan: plan || null,

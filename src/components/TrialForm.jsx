@@ -232,6 +232,9 @@ export function TrialForm({ initialProgram = '', initialPlan = '', initialTraine
 
       if (response && response.success) {
         setStatus('success');
+        const rawId = response.data?.referenceId || response.data?.id || response.data?.requestId || null;
+        const referenceId = rawId ? String(rawId).slice(0, 8) : null;
+
         const submissionPayload = {
           name: values.name,
           phone: values.phone,
@@ -240,7 +243,7 @@ export function TrialForm({ initialProgram = '', initialPlan = '', initialTraine
           plan: values.plan,
           trainer: values.trainer,
           notes: values.notes,
-          ticketId: response.data?.ticketId || 'ID-TR-94820',
+          referenceId,
         };
 
         // Reset form values completely (including program dropdown)
