@@ -1,7 +1,11 @@
 # Iron District Fitness
 
-> **"BUILT BY DISCIPLINE."**  
-> An industrial, high-contrast, production-ready web platform for Iron District Fitness (Sector 04 Strength Lab). Built with React 18, Vite, Tailwind CSS, Framer Motion, Lenis, Supabase Postgres, and Resend.
+> **"BUILT BY DISCIPLINE."**
+> An industrial, high-contrast marketing website for Iron District Fitness (Sector 04 Strength Lab). Built with React 18, Vite, Tailwind CSS, Framer Motion, Lenis, Supabase Postgres, and Resend.
+
+> **Portfolio demo project.** Iron District Fitness is a fictional brand. All names, trainers, prices, addresses, phone numbers and statistics are placeholder content.
+
+**Live demo:** Coming soon
 
 ---
 
@@ -14,46 +18,44 @@
 6. [Testing the Form Locally (`vercel dev`)](#testing-the-form-locally-vercel-dev)
 7. [Production Deployment to Vercel](#production-deployment-to-vercel)
 8. [How to Customize for a Real Client Gym](#how-to-customize-for-a-real-client-gym)
-9. [Verification & Test Results](#verification--test-results)
+9. [Testing Checklist](#testing-checklist)
 
 ---
 
 ## Tech Stack & Architecture
 
 - **Frontend:** React 18, Vite 5, Tailwind CSS, React Router v6.
-- **Pages:** Home (`/`), Programs (`/programs`), Trainers (`/trainers`), Membership (`/membership`), Contact (`/contact`), Success (`/success`), and 404 (`*`).
+- **Pages:** Home (`/`), Programs (`/programs`), Trainers (`/trainers`), Membership (`/membership`), Contact (`/contact`), Success (`/success`), Terms (`/terms`), Privacy (`/privacy`), and 404 (`*`).
 - **Animation System:**
-  - **Framer Motion**: Orchestrated hero entrance (masked line reveals, supporting text, CTA wipes), viewport reveals (`SectionReveal`), accordion height springs, and animated checkmarks.
-  - **Lenis**: Smooth inertia scrolling integrated with anchor links and sticky header offsets.
-  - **Accessibility**: Strict respect for `prefers-reduced-motion` across all components (disables parallax, smooth scrolling, and Ken Burns; substitutes simple opacity fades).
-- **Backend:** Vercel Serverless Functions (`/api/trial.js` ES Modules).
-- **Database:** Supabase (PostgreSQL) `trial_requests` table with strict Row Level Security.
-- **Email Dispatch:** Resend API for real-time gym owner email notifications.
+  - **Framer Motion**: Orchestrated hero entrance, viewport reveals (`SectionReveal`), accordion height transitions, and animated checkmarks.
+  - **Lenis**: Smooth scrolling integrated with anchor links and sticky header offsets.
+  - **Accessibility**: Respects `prefers-reduced-motion` (disables parallax, smooth scrolling and Ken Burns; substitutes simple opacity fades).
+- **Backend:** Vercel Serverless Functions (`/api/trial.js`, ES Modules).
+- **Database:** Supabase (PostgreSQL) `trial_requests` table with Row Level Security.
+- **Email Dispatch:** Resend API for email notifications to the gym owner.
 - **Validation:** Shared Zod schema between client and server (`/src/lib/schema.js`).
-- **Rate Limiting:** IP-hashed sliding window rate limiter (5 requests per 10 minutes).
+- **Spam Protection:** Honeypot field and IP-hashed rate limiting (5 requests per 10 minutes).
 
 ---
 
 ## Visual Design System
 
-The visual identity embodies an unapologetic, disciplined, industrial strength aesthetic engineered for high-performance athletes:
-
 | Token | Hex / Value | Purpose |
 |---|---|---|
-| **Canvas / Background** | `#0A0A0A` | Pure deep industrial black root surface |
-| **Card Surface** | `#141414` | Subdued charcoal card container tier |
-| **Elevated Surface** | `#1A1A1A` | Elevated interactive cells and metric tracks |
-| **Interactive Surface** | `#222222` | Hover tier and selected segmented toggles |
-| **Structural Border** | `#262626` | 1px hairline architectural seams |
-| **Primary Accent** | `#FF5A1F` | Blast Orange (CTAs, live badges, active borders) |
-| **Text Display** | `#FFFFFF` | Stark white display headlines |
-| **Text Body** | `#A3A3A3` | Balanced neutral grey body copy |
-| **Text Muted** | `#737373` | Technical monospace metadata annotations |
+| **Canvas / Background** | `#0A0A0A` | Root surface |
+| **Card Surface** | `#141414` | Card containers |
+| **Elevated Surface** | `#1A1A1A` | Elevated cells and tracks |
+| **Interactive Surface** | `#222222` | Hover tier and selected toggles |
+| **Structural Border** | `#262626` | 1px hairline borders |
+| **Primary Accent** | `#FF5A1F` | CTAs, badges, active borders |
+| **Text Display** | `#FFFFFF` | Headlines |
+| **Text Body** | `#A3A3A3` | Body copy |
+| **Text Muted** | `#737373` | Metadata annotations |
 
-### Typography:
-- **Headlines / Display:** `Barlow Condensed` (700 / 800 uppercase).
-- **Body & Editorial:** `Inter` (400 / 500 / 600).
-- **Data & Technical:** `Space Mono` (400 / 700 uppercase).
+### Typography
+- **Headlines / Display:** `Barlow Condensed` (700 / 800)
+- **Body:** `Inter` (400 / 500 / 600)
+- **Data & Technical:** `Space Mono` (400 / 700)
 
 ---
 
@@ -65,8 +67,9 @@ The visual identity embodies an unapologetic, disciplined, industrial strength a
 
 ### Installation
 ```bash
-# Clone or navigate to the repository
-cd stitch_iron_district_fitness_website
+# Clone the repository
+git clone https://github.com/dakshkaushik1209-blip/Iron-District-gym-.git
+cd Iron-District-gym-
 
 # Install dependencies
 npm install
@@ -79,7 +82,7 @@ cp .env.example .env
 ```bash
 npm run dev
 ```
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open [http://localhost:3000](http://localhost:3000) in your browser. This serves the frontend only; use `vercel dev` to test the form (see below).
 
 ---
 
@@ -92,8 +95,10 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
    - `Project URL` -> `SUPABASE_URL`
    - `service_role` (secret) key -> `SUPABASE_SERVICE_ROLE_KEY`
 
+Never expose the service role key in the browser, never prefix it with `VITE_`, and never commit it.
+
 ### Step 2: Run Table Creation & RLS SQL
-In your Supabase dashboard, navigate to the **SQL Editor**, paste the following script, and click **Run**:
+In your Supabase dashboard, open the **SQL Editor**, paste the following script, and click **Run**:
 
 ```sql
 -- 1. Create the trial_requests table
@@ -106,33 +111,33 @@ CREATE TABLE IF NOT EXISTS public.trial_requests (
     preferred_date DATE NOT NULL,
     plan TEXT,
     trainer TEXT,
-    notes TEXT,
+    notes TEXT CHECK (char_length(notes) <= 300),
     status TEXT NOT NULL DEFAULT 'new',
     ip_hash TEXT NOT NULL
 );
 
--- 2. Create index for IP rate checks and timestamps
+-- 2. Indexes for IP rate checks and timestamps
 CREATE INDEX IF NOT EXISTS idx_trial_requests_created_at ON public.trial_requests (created_at DESC);
 CREATE INDEX IF NOT EXISTS idx_trial_requests_ip_hash ON public.trial_requests (ip_hash);
 
 -- 3. Enable Row Level Security (RLS)
 ALTER TABLE public.trial_requests ENABLE ROW LEVEL SECURITY;
 
--- 4. RLS Policy: No public reads (prohibits anonymous users from querying lifter data)
+-- 4. No public reads
 CREATE POLICY "Deny public read access"
 ON public.trial_requests
 FOR SELECT
 TO anon
 USING (false);
 
--- 5. RLS Policy: Public inserts disallowed directly from client; only service_role can insert
+-- 5. Only the service role can insert
 CREATE POLICY "Allow service role insert only"
 ON public.trial_requests
 FOR INSERT
 TO service_role
 WITH CHECK (true);
 
--- 6. RLS Policy: Service role has full administrative access
+-- 6. Service role has full administrative access
 CREATE POLICY "Allow service role full access"
 ON public.trial_requests
 FOR ALL
@@ -145,20 +150,20 @@ USING (true);
 ## Resend Email Notification Setup
 
 1. Create a free account at [Resend](https://resend.com).
-2. Under **API Keys**, click **Create API Key** with Full Access permissions (`re_...`).
-3. Set the key in your environment variables as `RESEND_API_KEY`.
-4. Define your destination email address as `NOTIFY_EMAIL_TO` (e.g., `owner@irondistrictfitness.com`).
-5. For testing without a verified custom domain, use Resend's default test address:
-   ```env
+2. Under **API Keys**, create a key with **Sending access** (`re_...`).
+3. Set it as `RESEND_API_KEY`.
+4. Set `NOTIFY_EMAIL_TO` to the inbox that should receive new trial requests. Without a verified domain, Resend only delivers to the email address that owns your Resend account, so use that address while testing.
+5. For testing without a custom domain, use Resend's default sender:
+```env
    NOTIFY_EMAIL_FROM=onboarding@resend.dev
-   ```
-6. To send from your gym's custom domain (e.g., `noreply@irondistrictfitness.com`), verify your DNS records under Resend **Domains**.
+```
+6. To send from a custom domain (e.g., `noreply@yourgym.com`), verify your DNS records under Resend **Domains**.
 
 ---
 
 ## Testing the Form Locally (`vercel dev`)
 
-To test the full stack locally—including the serverless API handler in `/api/trial.js`—install the Vercel CLI:
+To test the full stack locally, including the serverless API in `/api/trial.js`, install the Vercel CLI:
 
 ```bash
 # Install Vercel CLI globally
@@ -169,32 +174,45 @@ vercel dev
 ```
 
 During local execution with `vercel dev`:
-- Vite serves the frontend on [http://localhost:3000](http://localhost:3000).
-- Serverless API requests to `/api/trial` are routed to the local Node runtime in `/api/trial.js`.
-- If environment variables are omitted, `/api/trial.js` enters **Demo Mode**, verifying validation, rate limits, and honeypot rules, and returning a generated ticket (`ID-TR-XXXXX`).
+- The frontend is served on [http://localhost:3000](http://localhost:3000).
+- Requests to `/api/trial` are routed to the local Node runtime.
+- Local development only: if the Supabase or Resend variables are missing, the API may run in a demo mode that checks validation, rate limits and the honeypot but does **not** save anything. In production and preview, missing variables return a server error and the form never shows success.
+
+Required environment variables (copy `.env.example` to `.env`):
+
+```env
+VITE_WHATSAPP_NUMBER=
+VITE_SITE_URL=http://localhost:3000
+SUPABASE_URL=
+SUPABASE_SERVICE_ROLE_KEY=
+RESEND_API_KEY=
+NOTIFY_EMAIL_TO=
+NOTIFY_EMAIL_FROM=onboarding@resend.dev
+```
 
 ---
 
 ## Production Deployment to Vercel
 
 ### Option 1: Via Vercel Web Dashboard (Recommended)
-1. Push your repository to GitHub / GitLab / Bitbucket.
+1. Push your repository to GitHub.
 2. In Vercel, click **Add New Project** and import the repository.
-3. Configure the **Build & Development Settings**:
+3. Configure **Build & Development Settings**:
    - Framework Preset: **Vite**
    - Build Command: `npm run build`
    - Output Directory: `dist`
 4. Add the following **Environment Variables**:
-   - `VITE_WHATSAPP_NUMBER`: Gym WhatsApp number in international format without `+` or spaces (e.g. `919XXXXXXXXX`).
-     > [!IMPORTANT]
-     > **Vercel Environment Variable Reminder**: Be sure to add `VITE_WHATSAPP_NUMBER` in **Vercel Dashboard -> Project Settings -> Environment Variables** (for Production and Preview environments) and trigger a redeployment (`Redeploy`) so your live client build bakes in the correct WhatsApp destination number.
-   - `VITE_SITE_URL`: Your live domain (e.g. `https://irondistrictfitness.com`)
+   - `VITE_WHATSAPP_NUMBER`: WhatsApp number in international format, digits only, no `+` or spaces (e.g. `919XXXXXXXXX`).
+   - `VITE_SITE_URL`: Your live URL (e.g. `https://your-site.vercel.app`)
    - `SUPABASE_URL`: Your Supabase Project URL
-   - `SUPABASE_SERVICE_ROLE_KEY`: Your Supabase Service Role Secret Key
-   - `RESEND_API_KEY`: Your Resend API Key (`re_...`)
-   - `NOTIFY_EMAIL_TO`: Owner or admissions inbox email
-   - `NOTIFY_EMAIL_FROM`: Verified sender email (e.g. `bookings@yourdomain.com`)
-5. Click **Deploy**. Vercel will build the frontend, optimize assets, and deploy the `/api/trial.js` serverless function.
+   - `SUPABASE_SERVICE_ROLE_KEY`: Your Supabase service role secret key
+   - `RESEND_API_KEY`: Your Resend API key (`re_...`)
+   - `NOTIFY_EMAIL_TO`: Inbox that receives trial requests
+   - `NOTIFY_EMAIL_FROM`: Sender email (`onboarding@resend.dev` until you verify a domain)
+5. Click **Deploy**.
+6. After the first deploy, set `VITE_SITE_URL` to the live URL and **Redeploy**, so canonical URLs and the Open Graph image use the correct address.
+
+> **Reminder:** `VITE_` variables are baked in at build time. After changing `VITE_WHATSAPP_NUMBER` or `VITE_SITE_URL`, trigger a redeploy.
 
 ### Option 2: Via Vercel CLI
 ```bash
@@ -205,33 +223,29 @@ vercel --prod
 
 ## How to Customize for a Real Client Gym
 
-When delivering this website to a real gym client, all copy, branding, pricing, and programs are centralized in configuration and data files:
+All copy, branding, pricing and programs live in config and data files:
 
-1. **Brand Identity & Coordinates:**
-   Update `/src/lib/config.js` with the client's legal name, facility address, operating hours, phone number, and Google Maps coordinates.
-2. **Programs:**
-   Edit `/src/data/programs.js` to modify disciplines, intensity ratings (RPE), equipment specs, and session lengths.
-3. **Trainers & Faculty:**
-   Edit `/src/data/trainers.js` with real trainer names, certifications, bios, and portraits. Set `isDemo: false`.
-4. **Pricing Tiers:**
-   Edit `/src/data/plans.js` to update pricing amounts, billing cadence, perk lists, and the comparison matrix.
-5. **Facility Photos:**
-   Replace the images in `/src/data/gallery.js` with photography of the client's actual training facility.
-6. **WhatsApp Integration:**
-   Set `VITE_WHATSAPP_NUMBER` in `.env` to the gym manager's direct WhatsApp business number. Prefilled messages will automatically adapt to any program, plan, or trainer context.
+1. **Brand identity & location:** Update `/src/lib/config.js` with the client's name, address, operating hours, phone number and Google Maps embed URL.
+2. **Programs:** Edit `/src/data/programs.js`.
+3. **Trainers:** Edit `/src/data/trainers.js` with real names, verified qualifications, bios and portraits. Set `isDemo: false`.
+4. **Pricing:** Edit `/src/data/plans.js` for amounts, billing cadence and perks.
+5. **Photos:** Replace the images in `/src/data/gallery.js` and `/public/images` with the client's own photography.
+6. **WhatsApp:** Set `VITE_WHATSAPP_NUMBER` to the gym's business number. Prefilled messages adapt to the program, plan or trainer the visitor selected.
+7. **Email:** Verify a sending domain in Resend and set the client's notification inbox.
 
 ---
 
-## Verification & Test Results
+## Testing Checklist
 
-The platform has been audited against production quality criteria:
+Run this before every deployment:
 
-| Category | Status | Details |
-|---|---|---|
-| **Build & Compilation** | ✅ PASSED | `npm run build` completes with 0 errors and 0 warnings. Code split into lazy chunks. |
-| **Responsive Layout** | ✅ PASSED | Tested across 360px, 390px, 768px, 1024px, and 1440px viewports. Sticky mobile booking bar activates under 768px. |
-| **Form Validation** | ✅ PASSED | Client and server Zod schemas enforce Indian phone format, future dates (+60 days), and honeypot spam traps. |
-| **Focus Management** | ✅ PASSED | On validation failure, focus automatically moves to the first invalid field. Mobile menu and Lightbox trap Tab focus. |
-| **Server Error Resilience** | ✅ PASSED | Preserves user input upon failure. Renders actionable "Try again" and WhatsApp fallback options. |
-| **Accessibility & Motion** | ✅ PASSED | Tested with `prefers-reduced-motion: reduce`. Disables Lenis and parallax; replaces motion with opacity fades. |
-| **SEO & Social Cards** | ✅ PASSED | OpenGraph, Twitter Cards, semantic tags (`h1`, `header`, `main`, `footer`), `robots.txt`, `sitemap.xml`, and JSON-LD structured data included. |
+- `npm run build` completes with no errors
+- Submit the form with valid data: a row appears in Supabase, an email arrives, the success page shows
+- Submit invalid data: inline errors appear and nothing is sent
+- Go offline and submit: an error is shown, never a success message
+- Click every WhatsApp button: WhatsApp opens with the correct prefilled message
+- Click every nav and footer link: no 404s
+- Refresh an inner page such as `/membership`: it still loads
+- Check 360px, 390px, 768px and 1440px widths
+- Check the browser console for errors
+- Test with `prefers-reduced-motion: reduce` enabled
