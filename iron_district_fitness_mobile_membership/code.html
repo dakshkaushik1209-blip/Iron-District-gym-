@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,700&amp;family=Inter:wght@400;500;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#131313;color:#e5e2e1;overflow-x:hidden;}body{overscroll-behavior-y:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}details summary::-webkit-details-marker{display:none;}details>summary{list-style:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-secondary": "#303030", "surface-container-lowest": "#0e0e0e", "tertiary-fixed": "#e5e2e1", "on-primary": "#5e1700", "secondary-fixed-dim": "#c8c6c5", "on-surface-variant": "#e4beb3", "error": "#ffb4ab", "on-secondary-fixed-variant": "#474746", "on-tertiary-fixed": "#1c1b1b", "background": "#131313", "secondary": "#c8c6c5", "surface": "#131313", "inverse-surface": "#e5e2e1", "surface-tint": "#ffb59e", "inverse-primary": "#ae3200", "primary-container": "#ff5a1f", "surface-container-high": "#2a2a2a", "on-tertiary": "#313030", "on-primary-fixed": "#3a0b00", "secondary-fixed": "#e4e2e1", "on-primary-container": "#541400", "on-primary-fixed-variant": "#852400", "secondary-container": "#474746", "surface-container": "#201f1f", "on-background": "#e5e2e1", "on-error": "#690005", "on-secondary-fixed": "#1b1c1c", "surface-container-low": "#1c1b1b", "error-container": "#93000a", "tertiary": "#c8c6c5", "tertiary-fixed-dim": "#c8c6c5", "surface-container-highest": "#353534", "surface-dim": "#131313", "on-tertiary-fixed-variant": "#474746", "on-secondary-container": "#b7b5b4", "tertiary-container": "#939191", "on-tertiary-container": "#2b2a2a", "on-error-container": "#ffdad6", "surface-variant": "#353534", "primary": "#ffb59e", "on-surface": "#e5e2e1", "outline-variant": "#5b4038", "primary-fixed-dim": "#ffb59e", "surface-bright": "#3a3939", "primary-fixed": "#ffdbd0", "outline": "#ab897f", "inverse-on-surface": "#313030" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-xl": "2.5rem", "margin": "3rem", "margin-mobile": "1.25rem", "space-lg": "1.5rem", "gutter": "1.5rem", "space-sm": "0.5rem", "space-xs": "0.25rem", "space-md": "1rem", "gutter-mobile": "1rem" }, "fontFamily": { "label-sm": ["Inter"], "display-lg": ["Barlow Condensed"], "label-code": ["Space Mono"], "body-sm": ["Inter"], "headline-sm": ["Barlow Condensed"], "headline-lg": ["Barlow Condensed"], "display-xl": ["Barlow Condensed"], "body-md": ["Inter"], "label-md": ["Inter"], "display-xl-mobile": ["Barlow Condensed"], "headline-md": ["Barlow Condensed"], "body-lg": ["Inter"], "display-lg-mobile": ["Barlow Condensed"] }, "fontSize": { "label-sm": ["0.75rem", { "lineHeight": "1.2", "letterSpacing": "0.06em", "fontWeight": "600" }], "display-lg": ["3.75rem", { "lineHeight": "1", "letterSpacing": "-0.01em", "fontWeight": "800" }], "label-code": ["0.75rem", { "lineHeight": "1", "letterSpacing": "0.08em", "fontWeight": "700" }], "body-sm": ["0.875rem", { "lineHeight": "1.55", "letterSpacing": "0em", "fontWeight": "400" }], "headline-sm": ["1.5rem", { "lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600" }], "headline-lg": ["2.5rem", { "lineHeight": "1.1", "letterSpacing": "0em", "fontWeight": "700" }], "display-xl": ["5rem", { "lineHeight": "0.95", "letterSpacing": "-0.02em", "fontWeight": "800" }], "body-md": ["1rem", { "lineHeight": "1.65", "letterSpacing": "-0.01em", "fontWeight": "400" }], "label-md": ["0.875rem", { "lineHeight": "1.2", "letterSpacing": "0.04em", "fontWeight": "600" }], "display-xl-mobile": ["3.5rem", { "lineHeight": "1", "letterSpacing": "-0.01em", "fontWeight": "800" }], "headline-md": ["2rem", { "lineHeight": "1.15", "letterSpacing": "0.01em", "fontWeight": "700" }], "body-lg": ["1.125rem", { "lineHeight": "1.7", "letterSpacing": "-0.01em", "fontWeight": "400" }], "display-lg-mobile": ["2.75rem", { "lineHeight": "1.05", "letterSpacing": "-0.01em", "fontWeight": "800" }] } } } }</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased flex flex-col min-h-screen selection:bg-primary-container selection:text-white"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.6)] pt-safe"><div class="h-16 px-gutter-mobile flex items-center justify-between"><a class="flex items-center gap-space-xs" data-path="home" href="#"><div class="w-3.5 h-3.5 bg-primary-container"></div><div class="flex flex-col leading-none"><span class="font-headline-sm text-headline-sm uppercase tracking-tight text-white font-bold">IRON DISTRICT</span><span class="font-label-code text-[0.625rem] text-primary tracking-widest">HEAVY ATHLETICS</span></div></a><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><details class="relative"><summary class="w-11 h-11 flex items-center justify-center text-white cursor-pointer select-none bg-surface-container active:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-2xl">menu</span></summary><div class="fixed inset-0 top-0 left-0 w-screen h-screen bg-surface-container-lowest/95 backdrop-blur-2xl z-50 flex flex-col justify-between p-gutter-mobile pt-safe pb-safe overflow-y-auto"><div class="flex items-center justify-between h-16"><div class="flex items-center gap-space-xs"><div class="w-3 h-3 bg-primary-container"></div><span class="font-headline-sm text-headline-sm uppercase text-white font-bold">IRON DISTRICT</span></div><form method="dialog"><button class="w-11 h-11 flex items-center justify-center text-white bg-surface-container" onclick="this.closest('details').removeAttribute('open')" type="button"><span class="material-symbols-outlined text-2xl">close</span></button></form></div><div class="flex flex-col gap-space-md my-space-lg"><span class="font-label-code text-label-code text-primary uppercase">// DIRECTORY INDEX</span><a class="font-display-lg-mobile text-display-lg-mobile uppercase text-white hover:text-primary transition-colors tracking-tight" data-path="home" href="#" onclick="this.closest('details').removeAttribute('open')">01. HOME</a><a class="font-display-lg-mobile text-display-lg-mobile uppercase text-white hover:text-primary transition-colors tracking-tight" data-path="programs" href="#" onclick="this.closest('details').removeAttribute('open')">02. PROGRAMS</a><a class="font-display-lg-mobile text-display-lg-mobile uppercase text-white hover:text-primary transition-colors tracking-tight" data-path="trainers" href="#" onclick="this.closest('details').removeAttribute('open')">03. TRAINERS</a><a class="font-display-lg-mobile text-display-lg-mobile uppercase text-white hover:text-primary transition-colors tracking-tight" data-path="membership" href="#" onclick="this.closest('details').removeAttribute('open')">04. MEMBERSHIP</a><a class="font-display-lg-mobile text-display-lg-mobile uppercase text-white hover:text-primary transition-colors tracking-tight" data-path="facility" href="#" onclick="this.closest('details').removeAttribute('open')">05. FACILITY</a><a class="font-display-lg-mobile text-display-lg-mobile uppercase text-white hover:text-primary transition-colors tracking-tight" data-path="contact" href="#" onclick="this.closest('details').removeAttribute('open')">06. CONTACT</a></div><div class="flex flex-col gap-space-md"><a class="w-full h-14 bg-primary-container text-black font-headline-sm text-headline-sm uppercase font-bold flex items-center justify-center tracking-wider active:bg-inverse-primary" data-path="free-trial-pass" href="#" onclick="this.closest('details').removeAttribute('open')">CLAIM FREE TRIAL PASS</a><div class="flex flex-col gap-space-xs font-label-code text-[0.7rem] text-secondary-fixed-dim"><div class="flex justify-between"><span class="text-primary">LOC:</span><span>BAY 04, SECTOR 9 DOCKS</span></div><div class="flex justify-between"><span class="text-primary">TEL:</span><span>+1 (555) 019-4828</span></div><div class="flex justify-between"><span class="text-primary">HOURS:</span><span>24/7 BADGE ACCESS</span></div></div></div></div></details></div></div></header><main class="flex flex-col relative w-full pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full text-on-surface">
+<!-- 01. PAGE HEADER & TELEMETRY SECTION -->
+<section class="flex flex-col px-gutter-mobile pt-space-md pb-space-lg">
+<!-- Protocol tag & System Notice -->
+<div class="flex flex-col gap-space-xs mb-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-code text-label-code text-primary uppercase tracking-widest">// ADMISSIONS &amp; COMMITMENT // SECTOR 04</span>
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 bg-surface-container text-secondary font-label-code text-[0.65rem] rounded-DEFAULT">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-ping"></span> LIVE SYNC
+        </span>
+</div>
+<!-- Demo Disclaimer Banner -->
+<div class="flex items-center gap-space-xs bg-surface-container-high px-space-sm py-1.5 rounded-DEFAULT">
+<span class="material-symbols-outlined text-primary text-[15px]">terminal</span>
+<span class="font-label-code text-[0.65rem] text-secondary-fixed tracking-wide">// NOTICE: DEMO ENVIRONMENT // Prices strictly illustrative.</span>
+</div>
+</div>
+<!-- Main Headline Block -->
+<div class="flex flex-col mt-space-xs">
+<h1 class="font-display-lg-mobile text-display-lg-mobile uppercase text-white leading-none">
+        MEMBERSHIP <span class="text-primary-container">TIERS.</span>
+</h1>
+<p class="font-body-md text-body-md text-secondary mt-space-xs">
+        Uncompromising barbell architecture with zero long-term entrapment. Calibrated platforms, competition kilo plates, and dedicated lifter volume caps.
+      </p>
+</div>
+<!-- Occupancy Telemetry Meter -->
+<div class="mt-space-md p-space-sm bg-surface-container-low rounded-DEFAULT flex flex-col gap-space-xs">
+<div class="flex items-center justify-between font-label-code text-label-code">
+<span class="text-white flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary-container text-[16px]">sensors</span>
+          CAPACITY TELEMETRY
+        </span>
+<span class="text-primary-container font-bold">88% OCCUPIED</span>
+</div>
+<!-- Progress Track -->
+<div class="w-full h-2 bg-surface-container-highest rounded-full overflow-hidden flex">
+<div class="h-full bg-primary-container" style="width: 88%;"></div>
+</div>
+<div class="flex items-center justify-between font-label-code text-[0.65rem] text-secondary">
+<span>QUOTA: 222 / 250 ATHLETES</span>
+<span class="text-white font-bold">28 SLOTS REMAINING</span>
+</div>
+</div>
+</section>
+<!-- 02. STACKED PRICING CARDS (RECOMMENDED FIRST) -->
+<section class="flex flex-col px-gutter-mobile gap-space-md">
+<!-- Subtitle indicator -->
+<div class="flex items-center justify-between font-label-code text-label-code text-secondary pb-space-xs">
+<span>// 01 SELECT COMMITMENT CADENCE</span>
+<span class="text-primary-container">ROLLING CANCELLATION</span>
+</div>
+<!-- CARD 1: QUARTERLY PROTOCOL (RECOMMENDED & FIRST) -->
+<div class="relative flex flex-col bg-surface-container p-space-md rounded-DEFAULT shadow-xl">
+<!-- High-voltage accent corner line -->
+<div class="absolute top-0 left-0 right-0 h-1 bg-primary-container"></div>
+<!-- Recommended Badge -->
+<div class="flex items-center justify-between mb-space-sm pt-1">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 bg-primary-container text-on-primary-container font-label-code text-[0.65rem] uppercase font-bold tracking-wider rounded-DEFAULT">
+<span class="material-symbols-outlined text-[13px]">star</span> RECOMMENDED // POPULAR SELECTION
+        </span>
+<span class="font-label-code text-[0.65rem] text-primary tracking-widest">TIER 02</span>
+</div>
+<!-- Plan Name & Pricing -->
+<div class="flex items-baseline justify-between">
+<div>
+<h2 class="font-headline-lg text-headline-lg uppercase text-white font-extrabold tracking-tight">QUARTERLY PROTOCOL</h2>
+<p class="font-body-sm text-body-sm text-secondary">Optimal athletic adaptation window</p>
+</div>
+</div>
+<div class="flex items-baseline gap-1 my-space-sm bg-surface-container-low p-space-sm rounded-DEFAULT">
+<span class="font-display-lg text-display-lg text-white font-extrabold leading-none">$72</span>
+<span class="font-label-code text-label-code text-secondary">/ MONTH</span>
+<span class="ml-auto font-label-code text-[0.7rem] text-primary-container bg-surface-container px-2 py-1 rounded-DEFAULT font-bold">
+          BILLED $216 • SAVE 15%
+        </span>
+</div>
+<!-- Perks Stack -->
+<div class="flex flex-col gap-space-xs py-space-sm font-body-sm text-body-sm text-white">
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-primary-container text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span><strong>All Monthly Access benefits</strong> with guaranteed platform peak priority</span>
+</div>
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-primary-container text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span><strong>1x Monthly Kinematic Video Audit</strong> from Head Strength Coach</span>
+</div>
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-primary-container text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span><strong>2 Guest Platform Passes</strong> per month for training partners</span>
+</div>
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-primary-container text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span><strong>Permanent locker assignment</strong> &amp; personal belt/shoe storage</span>
+</div>
+</div>
+<!-- CTA Button -->
+<button class="mt-space-sm w-full h-12 bg-primary-container text-black font-headline-sm text-headline-sm uppercase font-bold flex items-center justify-center gap-space-xs tracking-wider rounded-DEFAULT active:bg-inverse-primary transition-colors" onclick="document.getElementById('admissions-form').scrollIntoView({behavior: 'smooth'})">
+        ENQUIRE NOW <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+<!-- CARD 2: MONTHLY ACCESS -->
+<div class="flex flex-col bg-surface-container-low p-space-md rounded-DEFAULT">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-code text-label-code text-secondary uppercase tracking-wider">// ROLLING DISCIPLINE</span>
+<span class="font-label-code text-[0.65rem] text-secondary tracking-widest">TIER 01</span>
+</div>
+<div class="flex items-baseline justify-between">
+<div>
+<h2 class="font-headline-lg text-headline-lg uppercase text-white font-extrabold tracking-tight">MONTHLY ACCESS</h2>
+<p class="font-body-sm text-body-sm text-secondary">30-day flexible cycle commitment</p>
+</div>
+</div>
+<div class="flex items-baseline gap-1 my-space-sm bg-surface-container p-space-sm rounded-DEFAULT">
+<span class="font-display-lg text-display-lg text-white font-extrabold leading-none">$85</span>
+<span class="font-label-code text-label-code text-secondary">/ MONTH</span>
+<span class="ml-auto font-label-code text-[0.7rem] text-secondary-fixed bg-surface-container-high px-2 py-1 rounded-DEFAULT">
+          AUTO-RENEWS 30-DAY
+        </span>
+</div>
+<div class="flex flex-col gap-space-xs py-space-sm font-body-sm text-body-sm text-secondary-fixed">
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check</span>
+<span>Full 24/7 biometric turnstile gym &amp; Eleiko platform access</span>
+</div>
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check</span>
+<span>Unrestricted open chalk, calibrated steel &amp; Westside reverse hyper</span>
+</div>
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check</span>
+<span>Locker room amenities, rain showers &amp; infrared recovery sauna</span>
+</div>
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check</span>
+<span>Iron District lifter telemetry app booking portal access</span>
+</div>
+</div>
+<button class="mt-space-sm w-full h-12 bg-surface-container-highest text-white font-headline-sm text-headline-sm uppercase font-bold flex items-center justify-center gap-space-xs tracking-wider rounded-DEFAULT active:bg-secondary-container transition-colors" onclick="document.getElementById('admissions-form').scrollIntoView({behavior: 'smooth'})">
+        ENQUIRE NOW
+      </button>
+</div>
+<!-- CARD 3: ANNUAL STANDARD -->
+<div class="flex flex-col bg-surface-container-low p-space-md rounded-DEFAULT">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 bg-secondary-container text-white font-label-code text-[0.65rem] uppercase tracking-wider rounded-DEFAULT">
+          MAXIMUM DISCIPLINE // BEST VALUE
+        </span>
+<span class="font-label-code text-[0.65rem] text-primary tracking-widest">TIER 03</span>
+</div>
+<div class="flex items-baseline justify-between">
+<div>
+<h2 class="font-headline-lg text-headline-lg uppercase text-white font-extrabold tracking-tight">ANNUAL STANDARD</h2>
+<p class="font-body-sm text-body-sm text-secondary">365-day unyielding commitment</p>
+</div>
+</div>
+<div class="flex items-baseline gap-1 my-space-sm bg-surface-container p-space-sm rounded-DEFAULT">
+<span class="font-display-lg text-display-lg text-white font-extrabold leading-none">$60</span>
+<span class="font-label-code text-label-code text-secondary">/ MONTH</span>
+<span class="ml-auto font-label-code text-[0.7rem] text-primary-container bg-surface-container-high px-2 py-1 rounded-DEFAULT font-bold">
+          BILLED $720 • SAVE 30%
+        </span>
+</div>
+<div class="flex flex-col gap-space-xs py-space-sm font-body-sm text-body-sm text-secondary-fixed">
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check</span>
+<span>All Quarterly Protocol perks &amp; permanent locker included</span>
+</div>
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check</span>
+<span><strong>2 Private 1-on-1 Coaching Consultations</strong> per quarter</span>
+</div>
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check</span>
+<span>Official IDF heavy apparel kit &amp; custom lever lifting belt</span>
+</div>
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check</span>
+<span>VIP 24/7 keycard express door &amp; unlimited weekend guest passes</span>
+</div>
+</div>
+<button class="mt-space-sm w-full h-12 bg-surface-container-highest text-white font-headline-sm text-headline-sm uppercase font-bold flex items-center justify-center gap-space-xs tracking-wider rounded-DEFAULT active:bg-secondary-container transition-colors" onclick="document.getElementById('admissions-form').scrollIntoView({behavior: 'smooth'})">
+        ENQUIRE NOW
+      </button>
+</div>
+</section>
+<!-- 03. PLATFORM MATRIX // MOBILE BENEFITS COMPARISON ACCORDIONS -->
+<section class="flex flex-col px-gutter-mobile pt-space-xl">
+<div class="flex flex-col gap-space-xs mb-space-md">
+<span class="font-label-code text-label-code text-primary uppercase">// PROTOCOL AUDIT // 390PX VIEWPORT</span>
+<h2 class="font-headline-lg text-headline-lg uppercase text-white font-extrabold">PLATFORM MATRIX</h2>
+<p class="font-body-sm text-body-sm text-secondary">Tap any pillar below to inspect allocation across access tiers.</p>
+</div>
+<!-- Accordion Category 01 -->
+<details class="group bg-surface-container-low rounded-DEFAULT mb-space-xs" open="">
+<summary class="flex items-center justify-between p-space-md cursor-pointer select-none bg-surface-container hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-space-sm">
+<span class="font-label-code text-primary font-bold">01</span>
+<span class="font-headline-sm text-headline-sm uppercase text-white font-bold">FACILITY &amp; PLATFORM ACCESS</span>
+</div>
+<span class="material-symbols-outlined text-secondary transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<div class="p-space-md flex flex-col gap-space-sm font-body-sm text-body-sm">
+<!-- Metric Row -->
+<div class="flex flex-col gap-1 pb-space-xs bg-surface-container-lowest p-space-sm rounded-DEFAULT">
+<div class="font-label-md text-white font-bold uppercase">24/7 Biometric Turnstiles</div>
+<div class="flex justify-between font-label-code text-[0.7rem] text-secondary">
+<span>Monthly: <strong class="text-white">Active</strong></span>
+<span>Quarterly: <strong class="text-primary-container">Active</strong></span>
+<span>Annual: <strong class="text-white">Active</strong></span>
+</div>
+</div>
+<!-- Metric Row -->
+<div class="flex flex-col gap-1 pb-space-xs bg-surface-container-lowest p-space-sm rounded-DEFAULT">
+<div class="font-label-md text-white font-bold uppercase">Eleiko Olympic Platforms</div>
+<div class="flex justify-between font-label-code text-[0.7rem] text-secondary">
+<span>Monthly: <strong class="text-white">General</strong></span>
+<span>Quarterly: <strong class="text-primary-container">Priority</strong></span>
+<span>Annual: <strong class="text-white">Reserved</strong></span>
+</div>
+</div>
+<!-- Metric Row -->
+<div class="flex flex-col gap-1 pb-space-xs bg-surface-container-lowest p-space-sm rounded-DEFAULT">
+<div class="font-label-md text-white font-bold uppercase">Locker &amp; Gear Storage</div>
+<div class="flex justify-between font-label-code text-[0.7rem] text-secondary">
+<span>Monthly: <strong class="text-secondary">Day Use</strong></span>
+<span>Quarterly: <strong class="text-primary-container">Permanent</strong></span>
+<span>Annual: <strong class="text-white">VIP Heavy</strong></span>
+</div>
+</div>
+</div>
+</details>
+<!-- Accordion Category 02 -->
+<details class="group bg-surface-container-low rounded-DEFAULT mb-space-xs">
+<summary class="flex items-center justify-between p-space-md cursor-pointer select-none bg-surface-container hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-space-sm">
+<span class="font-label-code text-primary font-bold">02</span>
+<span class="font-headline-sm text-headline-sm uppercase text-white font-bold">COACHING &amp; KINEMATICS</span>
+</div>
+<span class="material-symbols-outlined text-secondary transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<div class="p-space-md flex flex-col gap-space-sm font-body-sm text-body-sm">
+<div class="flex flex-col gap-1 pb-space-xs bg-surface-container-lowest p-space-sm rounded-DEFAULT">
+<div class="font-label-md text-white font-bold uppercase">Kinematic Video Form Audit</div>
+<div class="flex justify-between font-label-code text-[0.7rem] text-secondary">
+<span>Monthly: <strong class="text-secondary">—</strong></span>
+<span>Quarterly: <strong class="text-primary-container">1x / Mo</strong></span>
+<span>Annual: <strong class="text-white">2x / Mo</strong></span>
+</div>
+</div>
+<div class="flex flex-col gap-1 pb-space-xs bg-surface-container-lowest p-space-sm rounded-DEFAULT">
+<div class="font-label-md text-white font-bold uppercase">1-on-1 Head Coach Strategy</div>
+<div class="flex justify-between font-label-code text-[0.7rem] text-secondary">
+<span>Monthly: <strong class="text-secondary">Add-on</strong></span>
+<span>Quarterly: <strong class="text-primary-container">Quarterly</strong></span>
+<span>Annual: <strong class="text-white">2x / Qtr</strong></span>
+</div>
+</div>
+<div class="flex flex-col gap-1 pb-space-xs bg-surface-container-lowest p-space-sm rounded-DEFAULT">
+<div class="font-label-md text-white font-bold uppercase">Custom Periodization Sheets</div>
+<div class="flex justify-between font-label-code text-[0.7rem] text-secondary">
+<span>Monthly: <strong class="text-secondary">Basic</strong></span>
+<span>Quarterly: <strong class="text-primary-container">Advanced</strong></span>
+<span>Annual: <strong class="text-white">Customized</strong></span>
+</div>
+</div>
+</div>
+</details>
+<!-- Accordion Category 03 -->
+<details class="group bg-surface-container-low rounded-DEFAULT">
+<summary class="flex items-center justify-between p-space-md cursor-pointer select-none bg-surface-container hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-space-sm">
+<span class="font-label-code text-primary font-bold">03</span>
+<span class="font-headline-sm text-headline-sm uppercase text-white font-bold">AMENITIES &amp; RECOVERY</span>
+</div>
+<span class="material-symbols-outlined text-secondary transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<div class="p-space-md flex flex-col gap-space-sm font-body-sm text-body-sm">
+<div class="flex flex-col gap-1 pb-space-xs bg-surface-container-lowest p-space-sm rounded-DEFAULT">
+<div class="font-label-md text-white font-bold uppercase">Infrared Sauna &amp; Cold Soak</div>
+<div class="flex justify-between font-label-code text-[0.7rem] text-secondary">
+<span>Monthly: <strong class="text-white">Standard</strong></span>
+<span>Quarterly: <strong class="text-primary-container">Unlimited</strong></span>
+<span>Annual: <strong class="text-white">Unlimited</strong></span>
+</div>
+</div>
+<div class="flex flex-col gap-1 pb-space-xs bg-surface-container-lowest p-space-sm rounded-DEFAULT">
+<div class="font-label-md text-white font-bold uppercase">Partner Guest Passes</div>
+<div class="flex justify-between font-label-code text-[0.7rem] text-secondary">
+<span>Monthly: <strong class="text-secondary">—</strong></span>
+<span>Quarterly: <strong class="text-primary-container">2 / Mo</strong></span>
+<span>Annual: <strong class="text-white">Unlimited Wknd</strong></span>
+</div>
+</div>
+<div class="flex flex-col gap-1 pb-space-xs bg-surface-container-lowest p-space-sm rounded-DEFAULT">
+<div class="font-label-md text-white font-bold uppercase">IDF Heavy Apparel &amp; Belt</div>
+<div class="flex justify-between font-label-code text-[0.7rem] text-secondary">
+<span>Monthly: <strong class="text-secondary">Pro Shop</strong></span>
+<span>Quarterly: <strong class="text-secondary">15% Off</strong></span>
+<span>Annual: <strong class="text-white">Included Pack</strong></span>
+</div>
+</div>
+</div>
+</details>
+</section>
+<!-- 04. ADMISSIONS & PROTOCOL FAQ ACCORDION -->
+<section class="flex flex-col px-gutter-mobile pt-space-xl">
+<div class="flex flex-col gap-space-xs mb-space-md">
+<span class="font-label-code text-label-code text-primary uppercase">// QUERY RESOLUTION // CODE 9</span>
+<h2 class="font-headline-lg text-headline-lg uppercase text-white font-extrabold">ADMISSIONS FAQ</h2>
+<p class="font-body-sm text-body-sm text-secondary">Operational clarity before stepping onto the training floor.</p>
+</div>
+<div class="flex flex-col gap-space-xs">
+<!-- FAQ 1 -->
+<details class="group bg-surface-container-low rounded-DEFAULT">
+<summary class="flex items-center justify-between p-space-md cursor-pointer select-none bg-surface-container">
+<span class="font-label-md text-label-md text-white font-bold">What is the exact cancellation policy?</span>
+<span class="material-symbols-outlined text-secondary transition-transform group-open:rotate-180">add</span>
+</summary>
+<div class="p-space-md font-body-sm text-body-sm text-secondary bg-surface-container-lowest">
+          Monthly access requires a clean 30-day notice via your telemetry portal. Quarterly protocols require notice 14 days prior to the auto-renew boundary. No predatory cancellation hurdles, no hidden exit fees.
+        </div>
+</details>
+<!-- FAQ 2 -->
+<details class="group bg-surface-container-low rounded-DEFAULT">
+<summary class="flex items-center justify-between p-space-md cursor-pointer select-none bg-surface-container">
+<span class="font-label-md text-label-md text-white font-bold">Are there onboarding or initiation fees?</span>
+<span class="material-symbols-outlined text-secondary transition-transform group-open:rotate-180">add</span>
+</summary>
+<div class="p-space-md font-body-sm text-body-sm text-secondary bg-surface-container-lowest">
+          Zero initiation fees. We reject commercial gym administration surcharges. Your badge is calibrated during your first 20-minute safety &amp; facility induction without additional charges.
+        </div>
+</details>
+<!-- FAQ 3 -->
+<details class="group bg-surface-container-low rounded-DEFAULT">
+<summary class="flex items-center justify-between p-space-md cursor-pointer select-none bg-surface-container">
+<span class="font-label-md text-label-md text-white font-bold">Can I freeze membership for injury or travel?</span>
+<span class="material-symbols-outlined text-secondary transition-transform group-open:rotate-180">add</span>
+</summary>
+<div class="p-space-md font-body-sm text-body-sm text-secondary bg-surface-container-lowest">
+          Yes. Quarterly and Annual lifters may freeze membership for up to 60 cumulative calendar days per year for verified recovery or work travel. Simply submit a freeze date via the app dashboard.
+        </div>
+</details>
+<!-- FAQ 4 -->
+<details class="group bg-surface-container-low rounded-DEFAULT">
+<summary class="flex items-center justify-between p-space-md cursor-pointer select-none bg-surface-container">
+<span class="font-label-md text-label-md text-white font-bold">Can I test the platforms before committing?</span>
+<span class="material-symbols-outlined text-secondary transition-transform group-open:rotate-180">add</span>
+</summary>
+<div class="p-space-md font-body-sm text-body-sm text-secondary bg-surface-container-lowest">
+          Absolutely. We offer a complimentary 90-minute trial session where you can bring your training log, test our calibrated Eleiko bars, and verify our atmosphere suits your training cadence.
+        </div>
+</details>
+<!-- FAQ 5 -->
+<details class="group bg-surface-container-low rounded-DEFAULT">
+<summary class="flex items-center justify-between p-space-md cursor-pointer select-none bg-surface-container">
+<span class="font-label-md text-label-md text-white font-bold">How does coaching integrate with standard access?</span>
+<span class="material-symbols-outlined text-secondary transition-transform group-open:rotate-180">add</span>
+</summary>
+<div class="p-space-md font-body-sm text-body-sm text-secondary bg-surface-container-lowest">
+          All tiers receive platform floor supervision from certified strength staff. Dedicated block programming, video analysis, and meet prep coaching can be attached as modular bolt-ons at any point.
+        </div>
+</details>
+</div>
+</section>
+<!-- 05. ADMISSIONS DISPATCH ENQUIRY FORM -->
+<section class="flex flex-col px-gutter-mobile pt-space-xl pb-space-lg" id="admissions-form">
+<div class="bg-surface-container-low p-space-md rounded-DEFAULT flex flex-col gap-space-md">
+<div>
+<span class="font-label-code text-label-code text-primary uppercase tracking-widest">// DISPATCH // ATHLETE ONBOARDING</span>
+<h2 class="font-headline-lg text-headline-lg uppercase text-white font-extrabold mt-1">ADMISSIONS ENQUIRY</h2>
+<p class="font-body-sm text-body-sm text-secondary">Submit credentials for floor induction review. Admissions confirmed within 4 operating hours.</p>
+</div>
+<!-- Strict Capacity Warning Tag -->
+<div class="flex items-center gap-space-xs bg-surface-container-highest px-space-sm py-2 rounded-DEFAULT">
+<span class="material-symbols-outlined text-primary-container text-[18px]">verified_user</span>
+<span class="font-label-code text-[0.7rem] text-white tracking-wide uppercase font-bold">ROSTER STRICTLY CAPPED AT 250 ACTIVE LIFTERS</span>
+</div>
+<form class="flex flex-col gap-space-md" onsubmit="event.preventDefault(); document.getElementById('form-feedback').classList.remove('hidden');">
+<!-- Input: Lifter Name -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">LIFTER FULL NAME</label>
+<input class="w-full h-12 bg-surface-container-lowest px-space-md text-white placeholder-secondary/50 font-body-md text-body-md rounded-DEFAULT focus:outline-none focus:bg-surface-container transition-colors" placeholder="e.g. Marcus Vance" required="" type="text"/>
+</div>
+<!-- Input: Email Address -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">EMAIL COMM ADDRESS</label>
+<input class="w-full h-12 bg-surface-container-lowest px-space-md text-white placeholder-secondary/50 font-body-md text-body-md rounded-DEFAULT focus:outline-none focus:bg-surface-container transition-colors" placeholder="lifter@domain.com" required="" type="email"/>
+</div>
+<!-- Tier Selector -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">INTENDED COMMITMENT TIER</label>
+<select class="w-full h-12 bg-surface-container-lowest px-space-md text-white font-body-md text-body-md rounded-DEFAULT focus:outline-none focus:bg-surface-container transition-colors">
+<option selected="" value="quarterly">QUARTERLY PROTOCOL ($72/MO - RECOMMENDED)</option>
+<option value="monthly">MONTHLY ACCESS ($85/MO)</option>
+<option value="annual">ANNUAL STANDARD ($60/MO)</option>
+<option value="trial">90-MIN TRIAL LIFT FIRST</option>
+</select>
+</div>
+<!-- Checkbox agreement -->
+<label class="flex items-start gap-space-xs cursor-pointer select-none pt-1">
+<input class="mt-1 w-4 h-4 accent-primary-container rounded-DEFAULT" required="" type="checkbox"/>
+<span class="font-body-sm text-[0.8rem] text-secondary">
+            I acknowledge Iron District is a specialized athletic training facility adhering to barbell etiquette and chalk protocols.
+          </span>
+</label>
+<!-- Submit Button -->
+<button class="w-full h-14 bg-primary-container text-black font-headline-sm text-headline-sm uppercase font-bold flex items-center justify-center gap-space-xs tracking-wider rounded-DEFAULT active:bg-inverse-primary transition-colors" type="submit">
+          SUBMIT ENQUIRY <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<!-- Feedback Success State -->
+<div class="hidden p-space-sm bg-surface-container text-white rounded-DEFAULT font-label-code text-[0.75rem] flex items-center gap-space-xs" id="form-feedback">
+<span class="material-symbols-outlined text-primary-container text-[18px]">check_circle</span>
+<span>TELEMETRY RECEIVED // Desk dispatch will email badge verification link.</span>
+</div>
+</form>
+</div>
+</section>
+<!-- REINFORCING STICKY DOCKS PROMPT (ABOVE FOOTER) -->
+<div class="px-gutter-mobile py-space-sm mb-space-lg">
+<div class="bg-surface-container-lowest p-space-sm rounded-DEFAULT flex items-center justify-between font-label-code text-[0.7rem] text-secondary">
+<span class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+        BIOMETRIC LOCKOUT SYSTEM ACTIVE
+      </span>
+<span class="text-primary font-bold">24/7/365</span>
+</div>
+</div>
+</div><footer class="w-full bg-surface-container-lowest px-gutter-mobile pt-space-xl pb-36 mt-space-xl flex flex-col gap-space-lg"><div class="flex items-center gap-space-xs"><div class="w-4 h-4 bg-primary-container"></div><span class="font-headline-md text-headline-md uppercase text-white font-extrabold">IRON DISTRICT</span></div><p class="font-body-sm text-body-sm text-secondary">No commercial gimmicks. Raw iron, calibrated plates, and specialized athletic conditioning. Built for disciplined individuals.</p><div class="flex flex-col gap-space-xs font-label-code text-label-code text-secondary-fixed-dim"><span class="text-primary font-bold">TELEMETRY &amp; CONTACT</span><span>402 INDUSTRIAL PKWY, SECTOR 9</span><span>HQ@IRONDISTRICTFITNESS.COM</span><span>TEL: +1 (555) 019-4828</span></div><div class="grid grid-cols-2 gap-space-sm pt-space-sm font-label-md text-label-md uppercase"><a class="text-on-surface hover:text-primary" data-path="programs" href="#">PROGRAMS</a><a class="text-on-surface hover:text-primary" data-path="membership" href="#">MEMBERSHIP</a><a class="text-on-surface hover:text-primary" data-path="trainers" href="#">COACHING</a><a class="text-on-surface hover:text-primary" data-path="facility" href="#">FACILITY TOUR</a></div><div class="font-label-code text-[0.65rem] text-outline pt-space-md">© 2025 IRON DISTRICT ATHLETICS LLC. ALL PROTOCOLS RESERVED.</div></footer></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(0,0,0,0.7)]" data-active-classes="text-primary font-bold"><div class="px-gutter-mobile pt-space-xs pb-space-sm flex flex-col gap-space-xs"><div class="flex items-center justify-between font-label-code text-[0.65rem] text-secondary tracking-widest"><span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span>12 SLOTS TODAY</span><span class="text-primary">// FREE 90-MIN LIFT</span></div><a class="w-full h-12 bg-primary-container active:bg-inverse-primary text-black font-headline-sm text-headline-sm uppercase font-bold flex items-center justify-center tracking-wider transition-colors" data-path="free-trial-pass" href="#">BOOK A FREE TRIAL</a></div><div class="h-14 px-gutter-mobile flex items-center justify-around"><a class="flex flex-col items-center justify-center gap-0.5 text-secondary hover:text-on-surface w-14 h-12" data-path="home" href="#"><span class="material-symbols-outlined text-[20px]">fitness_center</span><span class="font-label-code text-[0.6rem] uppercase tracking-wider">HUB</span></a><a class="flex flex-col items-center justify-center gap-0.5 text-secondary hover:text-on-surface w-14 h-12" data-path="programs" href="#"><span class="material-symbols-outlined text-[20px]">view_timeline</span><span class="font-label-code text-[0.6rem] uppercase tracking-wider">REGIMEN</span></a><a aria-current="page" class="flex flex-col items-center justify-center gap-0.5 w-14 h-12 text-primary font-bold" data-path="membership" href="#"><span class="material-symbols-outlined text-[20px]">badge</span><span class="font-label-code text-[0.6rem] uppercase tracking-wider">ACCESS</span></a><a class="flex flex-col items-center justify-center gap-0.5 text-secondary hover:text-on-surface w-14 h-12" data-path="contact" href="#"><span class="material-symbols-outlined text-[20px]">location_on</span><span class="font-label-code text-[0.6rem] uppercase tracking-wider">DOCKS</span></a></div></nav></body></html>

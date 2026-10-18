@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&amp;family=Inter:wght@400;600&amp;family=Space+Mono:wght@700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-secondary": "#303030", "primary-fixed": "#ffdbd0", "on-tertiary-fixed-variant": "#474746", "primary": "#ffb59e", "inverse-surface": "#e5e2e1", "on-secondary-fixed-variant": "#474746", "secondary-fixed-dim": "#c8c6c5", "error": "#ffb4ab", "surface-dim": "#131313", "on-error-container": "#ffdad6", "surface-container-low": "#1c1b1b", "surface-container-highest": "#353534", "background": "#131313", "inverse-on-surface": "#313030", "inverse-primary": "#ae3200", "on-tertiary-fixed": "#1c1b1b", "surface-container": "#201f1f", "primary-container": "#ff5a1f", "on-secondary-container": "#b7b5b4", "outline": "#ab897f", "secondary-container": "#474746", "tertiary-container": "#939191", "surface-variant": "#353534", "tertiary-fixed": "#e5e2e1", "surface-tint": "#ffb59e", "on-error": "#690005", "primary-fixed-dim": "#ffb59e", "on-primary-fixed-variant": "#852400", "secondary": "#c8c6c5", "tertiary-fixed-dim": "#c8c6c5", "on-primary-fixed": "#3a0b00", "tertiary": "#c8c6c5", "on-secondary-fixed": "#1b1c1c", "on-surface": "#e5e2e1", "error-container": "#93000a", "on-primary-container": "#541400", "on-primary": "#5e1700", "secondary-fixed": "#e4e2e1", "surface": "#131313", "on-background": "#e5e2e1", "surface-container-lowest": "#0e0e0e", "outline-variant": "#5b4038", "on-tertiary-container": "#2b2a2a", "surface-bright": "#3a3939", "surface-container-high": "#2a2a2a", "on-surface-variant": "#e4beb3", "on-tertiary": "#313030" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "margin-mobile": "1.25rem", "gutter": "1.5rem", "space-md": "1rem", "space-xl": "2.5rem", "space-lg": "1.5rem", "space-sm": "0.5rem", "margin": "3rem", "gutter-mobile": "1rem", "space-xs": "0.25rem" }, "fontFamily": { "display-xl-mobile": [ "Barlow Condensed" ], "label-sm": [ "Inter" ], "label-md": [ "Inter" ], "body-md": [ "Inter" ], "label-code": [ "Space Mono" ], "display-xl": [ "Barlow Condensed" ], "headline-sm": [ "Barlow Condensed" ], "body-sm": [ "Inter" ], "headline-md": [ "Barlow Condensed" ], "headline-lg": [ "Barlow Condensed" ], "display-lg-mobile": [ "Barlow Condensed" ], "body-lg": [ "Inter" ], "display-lg": [ "Barlow Condensed" ] }, "fontSize": { "display-xl-mobile": [ "3.5rem", { "lineHeight": "1", "letterSpacing": "-0.01em", "fontWeight": "800" } ], "label-sm": [ "0.75rem", { "lineHeight": "1.2", "letterSpacing": "0.06em", "fontWeight": "600" } ], "label-md": [ "0.875rem", { "lineHeight": "1.2", "letterSpacing": "0.04em", "fontWeight": "600" } ], "body-md": [ "1rem", { "lineHeight": "1.65", "letterSpacing": "-0.01em", "fontWeight": "400" } ], "label-code": [ "0.75rem", { "lineHeight": "1", "letterSpacing": "0.08em", "fontWeight": "700" } ], "display-xl": [ "5rem", { "lineHeight": "0.95", "letterSpacing": "-0.02em", "fontWeight": "800" } ], "headline-sm": [ "1.5rem", { "lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600" } ], "body-sm": [ "0.875rem", { "lineHeight": "1.55", "letterSpacing": "0em", "fontWeight": "400" } ], "headline-md": [ "2rem", { "lineHeight": "1.15", "letterSpacing": "0.01em", "fontWeight": "700" } ], "headline-lg": [ "2.5rem", { "lineHeight": "1.1", "letterSpacing": "0em", "fontWeight": "700" } ], "display-lg-mobile": [ "2.75rem", { "lineHeight": "1.05", "letterSpacing": "-0.01em", "fontWeight": "800" } ], "body-lg": [ "1.125rem", { "lineHeight": "1.7", "letterSpacing": "-0.01em", "fontWeight": "400" } ], "display-lg": [ "3.75rem", { "lineHeight": "1", "letterSpacing": "-0.01em", "fontWeight": "800" } ] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 w-full z-50 bg-surface-container-lowest/90 backdrop-blur-md border-b border-surface-container-highest"><div class="h-20 w-full px-margin flex items-center justify-between"><div class="flex items-center gap-space-md"><img alt="Iron District Fitness Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Vz96llEiwupidn4iFzy6NgW3IBJ2etOlv84UPzAr3-PhlPHBW2ttIevM2RfUzNRWJL9DgDhu5yqgcJx1wYNFsqM2tNc-frPZ_xb_i_9Ak7ihW68V8DPueeX_RMwxFHJDyz6R5E48nOzyz1Cuk-l7Pzu17OBkyXSoyi_uICFo3xgUgrOE9rN47zVuBVw0Ar4NGE-j3xuPb5TDUbKxyRwAaDTKt88wylF87VZXPGvTvXMm3MQPrEl0PnKfPx"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm uppercase tracking-wider text-on-surface leading-none">Iron District</span><span class="font-label-code text-label-code uppercase tracking-widest text-outline text-[10px]">Strength Lab // SEC-04</span></div></div><nav class="hidden md:flex items-center gap-space-xl" data-active-classes="text-primary-container font-headline-sm"><a class="font-headline-sm text-headline-sm uppercase tracking-wide text-secondary hover:text-on-surface transition-colors" data-path="home" href="#">Home</a><a class="font-headline-sm text-headline-sm uppercase tracking-wide text-secondary hover:text-on-surface transition-colors" data-path="programs" href="#">Programs</a><a class="font-headline-sm text-headline-sm uppercase tracking-wide text-secondary hover:text-on-surface transition-colors" data-path="trainers" href="#">Trainers</a><a aria-current="page" class="uppercase tracking-wide transition-colors text-primary-container font-headline-sm" data-path="membership" href="#">Membership</a><a class="font-headline-sm text-headline-sm uppercase tracking-wide text-secondary hover:text-on-surface transition-colors" data-path="contact" href="#">Contact</a></nav><div class="flex items-center gap-space-md"><a class="hidden sm:inline-flex items-center justify-center bg-primary-container text-on-primary font-headline-sm text-headline-sm uppercase tracking-wider px-space-lg py-space-sm rounded-DEFAULT hover:bg-primary hover:text-on-primary transition-colors" data-path="book-trial" href="#">Book a Free Trial</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface-container-lowest min-h-screen"><div class="flex flex-col w-full">
+<!-- SECTION 1: HEADER & ADMISSIONS TELEMETRY -->
+<section class="w-full px-margin-mobile md:px-margin pt-space-xl pb-space-lg bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto flex flex-col gap-space-md">
+<!-- Breadcrumb indicator -->
+<div class="flex items-center gap-space-xs font-label-code text-label-code text-secondary tracking-widest uppercase">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span class="text-primary-container font-bold">// ADMISSIONS &amp; COMMITMENT</span>
+<span class="text-secondary-container">/</span>
+<span>SECTOR 04 STRENGTH LAB</span>
+<span class="text-secondary-container">/</span>
+<span class="text-tertiary">PROTOCOL REV. 2025.2</span>
+</div>
+<!-- Giant Display Headline -->
+<div class="flex flex-col">
+<h1 class="font-display-xl text-display-xl uppercase tracking-tighter text-on-surface">
+          MEMBERSHIP <span class="text-primary-container">TIERS.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-secondary max-w-2xl mt-space-xs">
+          Uncompromising barbell architecture with zero long-term entrapment. Choose your periodized commitment level.
+        </p>
+</div>
+<!-- Notice Banner -->
+<div class="mt-space-sm p-space-sm md:p-space-md bg-surface-container border border-surface-container-highest rounded-DEFAULT flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary-container text-[20px]">terminal</span>
+<span class="font-label-code text-label-code text-secondary tracking-wider">
+<strong class="text-primary-container">// NOTICE: DEMO ENVIRONMENT</strong> // Prices, rates, and commitment terms displayed below are strictly illustrative for portfolio evaluation purposes.
+          </span>
+</div>
+<div class="hidden lg:flex items-center gap-space-xs px-space-sm py-1 bg-surface-container-low rounded-DEFAULT border border-surface-container-highest">
+<span class="font-label-code text-[10px] uppercase text-outline">CAPACITY: 88% ROSTER OCCUPIED</span>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 2: THREE PRICING TIERS -->
+<section class="w-full px-margin-mobile md:px-margin py-space-xl bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-gutter items-stretch">
+<!-- TIER 01: MONTHLY ACCESS -->
+<div class="flex flex-col justify-between bg-surface-container-low border border-surface-container-highest p-space-lg rounded-DEFAULT transition-all duration-300 hover:border-secondary">
+<div>
+<!-- Header block -->
+<div class="flex items-center justify-between pb-space-sm border-b border-surface-container-highest">
+<span class="font-label-code text-label-code text-tertiary">[01 // FLEXIBLE COMMITMENT]</span>
+<span class="font-label-code text-[11px] px-space-xs py-0.5 bg-surface-container text-secondary rounded-DEFAULT">30-DAY ROLLING</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface uppercase mt-space-md tracking-tight">
+            MONTHLY ACCESS
+          </h2>
+<p class="font-body-sm text-body-sm text-secondary mt-space-xs">
+            Ideal for traveling lifters, short-block testing, and total athletic freedom.
+          </p>
+<!-- Price Display -->
+<div class="my-space-lg flex items-baseline gap-space-xs">
+<span class="font-display-lg text-display-lg text-on-surface font-extrabold leading-none">$85</span>
+<div class="flex flex-col">
+<span class="font-label-code text-label-code text-secondary">/ MONTH</span>
+<span class="font-label-code text-[10px] text-tertiary">BILLED MONTHLY</span>
+</div>
+</div>
+<div class="p-space-sm bg-surface-container rounded-DEFAULT mb-space-lg text-left">
+<span class="font-label-code text-[11px] text-outline block mb-1 uppercase tracking-wider">// CONTRACT STATUS:</span>
+<span class="font-body-sm text-body-sm text-on-surface">Cancel anytime with 14-day written notice.</span>
+</div>
+<!-- Feature List -->
+<div class="space-y-space-sm">
+<span class="font-label-code text-label-code text-secondary uppercase tracking-widest block mb-space-xs">// ARSENAL PROVISIONS</span>
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary-container text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span class="font-body-sm text-body-sm text-on-surface">Full 24/7 biometric gym &amp; platform access</span>
+</div>
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary-container text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span class="font-body-sm text-body-sm text-on-surface">Complete open calibrated steel platform availability</span>
+</div>
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary-container text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span class="font-body-sm text-body-sm text-on-surface">Locker room &amp; infrared sauna access</span>
+</div>
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary-container text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span class="font-body-sm text-body-sm text-on-surface">Member telemetry mobile booking portal</span>
+</div>
+<div class="flex items-start gap-space-sm opacity-50">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">cancel</span>
+<span class="font-body-sm text-body-sm text-secondary line-through">Kinematic form reviews &amp; reserved rack slots</span>
+</div>
+</div>
+</div>
+<div class="mt-space-xl pt-space-md border-t border-surface-container-highest">
+<a class="w-full inline-flex items-center justify-center border border-surface-container-highest hover:border-primary-container hover:bg-surface-container text-on-surface font-headline-sm text-headline-sm uppercase tracking-wider py-space-sm px-space-md rounded-DEFAULT transition-colors" href="#enquire-band">
+            Enquire Now
+          </a>
+</div>
+</div>
+<!-- TIER 02: QUARTERLY PROTOCOL (FEATURED) -->
+<div class="relative flex flex-col justify-between bg-surface-container border-2 border-primary-container p-space-lg rounded-DEFAULT shadow-xl -mt-0 lg:-mt-3 lg:mb-0">
+<!-- Top Recommended Ribbon -->
+<div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-primary-container text-on-primary-container font-label-code text-[11px] font-bold px-space-md py-1 uppercase tracking-widest rounded-DEFAULT whitespace-nowrap shadow-md">
+          RECOMMENDED FOR COMMITTED LIFTERS // POPULAR SELECTION
+        </div>
+<div>
+<!-- Header block -->
+<div class="flex items-center justify-between pb-space-sm border-b border-surface-container-highest pt-2">
+<span class="font-label-code text-label-code text-primary-container font-bold">[02 // MAXIMUM HYPERTROPHY]</span>
+<span class="font-label-code text-[11px] px-space-xs py-0.5 bg-primary-container/20 text-primary-container rounded-DEFAULT font-bold">SAVE 15%</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface uppercase mt-space-md tracking-tight">
+            QUARTERLY PROTOCOL
+          </h2>
+<p class="font-body-sm text-body-sm text-secondary mt-space-xs">
+            The ideal standard 12-week mesocycle dedication for peak powerlifting and strength gains.
+          </p>
+<!-- Price Display -->
+<div class="my-space-lg flex items-baseline gap-space-xs">
+<span class="font-display-lg text-display-lg text-primary-container font-extrabold leading-none">$72</span>
+<div class="flex flex-col">
+<span class="font-label-code text-label-code text-on-surface font-bold">/ MONTH</span>
+<span class="font-label-code text-[10px] text-secondary">BILLED $216 QUARTERLY</span>
+</div>
+</div>
+<div class="p-space-sm bg-surface-container-lowest rounded-DEFAULT mb-space-lg text-left border border-surface-container-highest">
+<span class="font-label-code text-[11px] text-primary-container block mb-1 uppercase tracking-wider">// CONTRACT STATUS:</span>
+<span class="font-body-sm text-body-sm text-on-surface">3-month periodized lock-in. 60-day pause allowance.</span>
+</div>
+<!-- Feature List -->
+<div class="space-y-space-sm">
+<span class="font-label-code text-label-code text-primary-container uppercase tracking-widest block mb-space-xs">// PROTOCOL ARSENAL INCLUSIONS</span>
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary-container text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold">All Monthly Access benefits included</span>
+</div>
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary-container text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span class="font-body-sm text-body-sm text-on-surface">1x monthly kinematic lifting form &amp; bar-path video audit</span>
+</div>
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary-container text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span class="font-body-sm text-body-sm text-on-surface">2 guest passes allocated per month</span>
+</div>
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary-container text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span class="font-body-sm text-body-sm text-on-surface">Permanent locker allocation &amp; free gear storage</span>
+</div>
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary-container text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span class="font-body-sm text-body-sm text-on-surface">Priority platform scheduling during peak hours</span>
+</div>
+</div>
+</div>
+<div class="mt-space-xl pt-space-md border-t border-surface-container-highest">
+<a class="w-full inline-flex items-center justify-center bg-primary-container text-on-primary-container hover:bg-primary font-headline-sm text-headline-sm uppercase tracking-wider py-space-sm px-space-md rounded-DEFAULT font-bold transition-all shadow-md" href="#enquire-band">
+            Enquire Now →
+          </a>
+</div>
+</div>
+<!-- TIER 03: ANNUAL STANDARD -->
+<div class="flex flex-col justify-between bg-surface-container-low border border-surface-container-highest p-space-lg rounded-DEFAULT transition-all duration-300 hover:border-secondary">
+<div>
+<!-- Header block -->
+<div class="flex items-center justify-between pb-space-sm border-b border-surface-container-highest">
+<span class="font-label-code text-label-code text-tertiary">[03 // MAXIMUM DISCIPLINE]</span>
+<span class="font-label-code text-[11px] px-space-xs py-0.5 bg-surface-container text-primary-container font-bold rounded-DEFAULT">SAVE 30%</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface uppercase mt-space-md tracking-tight">
+            ANNUAL STANDARD
+          </h2>
+<p class="font-body-sm text-body-sm text-secondary mt-space-xs">
+            Complete high-tier immersion for elite competitive strength lifters and disciplined regulars.
+          </p>
+<!-- Price Display -->
+<div class="my-space-lg flex items-baseline gap-space-xs">
+<span class="font-display-lg text-display-lg text-on-surface font-extrabold leading-none">$60</span>
+<div class="flex flex-col">
+<span class="font-label-code text-label-code text-secondary">/ MONTH</span>
+<span class="font-label-code text-[10px] text-tertiary">BILLED $720 ANNUALLY</span>
+</div>
+</div>
+<div class="p-space-sm bg-surface-container rounded-DEFAULT mb-space-lg text-left">
+<span class="font-label-code text-[11px] text-outline block mb-1 uppercase tracking-wider">// CONTRACT STATUS:</span>
+<span class="font-body-sm text-body-sm text-on-surface">365-day athletic covenant. 60-day travel freeze.</span>
+</div>
+<!-- Feature List -->
+<div class="space-y-space-sm">
+<span class="font-label-code text-label-code text-secondary uppercase tracking-widest block mb-space-xs">// VIP ARSENAL INCLUSIONS</span>
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary-container text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold">All Quarterly tier perks included</span>
+</div>
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary-container text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span class="font-body-sm text-body-sm text-on-surface">2 private 1-on-1 coaching consultations per quarter</span>
+</div>
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary-container text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span class="font-body-sm text-body-sm text-on-surface">Official IDF heavy apparel kit &amp; leather lifting belt</span>
+</div>
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary-container text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span class="font-body-sm text-body-sm text-on-surface">24/7 keycard VIP express door unlock</span>
+</div>
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary-container text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span class="font-body-sm text-body-sm text-on-surface">Unlimited weekend guest platform access</span>
+</div>
+</div>
+</div>
+<div class="mt-space-xl pt-space-md border-t border-surface-container-highest">
+<a class="w-full inline-flex items-center justify-center border border-surface-container-highest hover:border-primary-container hover:bg-surface-container text-on-surface font-headline-sm text-headline-sm uppercase tracking-wider py-space-sm px-space-md rounded-DEFAULT transition-colors" href="#enquire-band">
+            Enquire Now
+          </a>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 3: COMPREHENSIVE TIER MATRIX TABLE -->
+<section class="w-full px-margin-mobile md:px-margin py-space-xl bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto">
+<!-- Section Header -->
+<div class="mb-space-lg flex flex-col md:flex-row md:items-end justify-between gap-space-md pb-space-sm border-b border-surface-container-highest">
+<div>
+<span class="font-label-code text-label-code text-primary-container uppercase tracking-widest">// SPECIFICATION TELEMETRY</span>
+<h2 class="font-headline-lg text-headline-lg uppercase text-on-surface mt-space-xs">
+            PLATFORM MATRIX // COMPREHENSIVE TIER COMPARISON
+          </h2>
+<p class="font-body-md text-body-md text-secondary">
+            A clear, granular breakdown of equipment access, recovery quarters, coaching audits, and facility privileges.
+          </p>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-label-code text-label-code text-outline uppercase">ALL CALIBRATED TO IPF SPECS</span>
+</div>
+</div>
+<!-- Comparison Table Container -->
+<div class="w-full overflow-x-auto border border-surface-container-highest rounded-DEFAULT bg-surface-container-low">
+<table class="w-full text-left border-collapse min-w-[700px]">
+<thead>
+<tr class="border-b border-surface-container-highest bg-surface-container text-on-surface font-label-code text-label-code tracking-wider uppercase">
+<th class="p-space-md w-2/5">PRIVILEGE &amp; SPECIFICATION</th>
+<th class="p-space-md text-center w-1/5">MONTHLY<br/><span class="text-tertiary font-normal">($85/MO)</span></th>
+<th class="p-space-md text-center w-1/5 bg-surface-container-high/60 text-primary-container font-bold border-x border-surface-container-highest">
+                QUARTERLY<br/><span class="font-normal text-on-surface">($72/MO)</span>
+</th>
+<th class="p-space-md text-center w-1/5">ANNUAL<br/><span class="text-tertiary font-normal">($60/MO)</span></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-highest font-body-sm text-body-sm">
+<!-- Category: FACILITY & PLATFORM ACCESS -->
+<tr class="bg-surface-container/30">
+<td class="p-space-sm px-space-md font-label-code text-label-code uppercase tracking-widest text-primary-container" colspan="4">
+                // 01: FACILITY &amp; PLATFORM ACCESS
+              </td>
+</tr>
+<tr class="hover:bg-surface-container/50 transition-colors">
+<td class="p-space-md text-on-surface font-medium">24/7 Biometric Turnstile Access</td>
+<td class="p-space-md text-center"><span class="material-symbols-outlined text-primary-container text-[20px]">check</span></td>
+<td class="p-space-md text-center bg-surface-container-high/40 border-x border-surface-container-highest"><span class="material-symbols-outlined text-primary-container text-[20px]">check</span></td>
+<td class="p-space-md text-center"><span class="material-symbols-outlined text-primary-container text-[20px]">check</span></td>
+</tr>
+<tr class="hover:bg-surface-container/50 transition-colors">
+<td class="p-space-md text-on-surface font-medium">Competition Eleiko &amp; Calibrated Steel Platforms</td>
+<td class="p-space-md text-center"><span class="material-symbols-outlined text-primary-container text-[20px]">check</span></td>
+<td class="p-space-md text-center bg-surface-container-high/40 border-x border-surface-container-highest"><span class="material-symbols-outlined text-primary-container text-[20px]">check</span></td>
+<td class="p-space-md text-center"><span class="material-symbols-outlined text-primary-container text-[20px]">check</span></td>
+</tr>
+<tr class="hover:bg-surface-container/50 transition-colors">
+<td class="p-space-md text-on-surface font-medium">Peak Hour Platform Reservation</td>
+<td class="p-space-md text-center text-tertiary font-label-code">—</td>
+<td class="p-space-md text-center bg-surface-container-high/40 border-x border-surface-container-highest font-label-code text-[12px] text-on-surface">Standard Queue</td>
+<td class="p-space-md text-center font-label-code text-[12px] text-primary-container font-bold">Guaranteed Priority</td>
+</tr>
+<tr class="hover:bg-surface-container/50 transition-colors">
+<td class="p-space-md text-on-surface font-medium">Dedicated Member Locker &amp; Towel Service</td>
+<td class="p-space-md text-center text-secondary font-label-code text-[12px]">Shared Daily</td>
+<td class="p-space-md text-center bg-surface-container-high/40 border-x border-surface-container-highest font-label-code text-[12px] text-on-surface">Permanent Locker</td>
+<td class="p-space-md text-center font-label-code text-[12px] text-on-surface">Permanent + Laundry</td>
+</tr>
+<!-- Category: COACHING & KINEMATICS -->
+<tr class="bg-surface-container/30">
+<td class="p-space-sm px-space-md font-label-code text-label-code uppercase tracking-widest text-primary-container" colspan="4">
+                // 02: COACHING &amp; KINEMATICS
+              </td>
+</tr>
+<tr class="hover:bg-surface-container/50 transition-colors">
+<td class="p-space-md text-on-surface font-medium">Biometric Bar-Path Video Velocity Review</td>
+<td class="p-space-md text-center text-tertiary font-label-code">—</td>
+<td class="p-space-md text-center bg-surface-container-high/40 border-x border-surface-container-highest font-label-code text-[12px] text-on-surface">1x / Month</td>
+<td class="p-space-md text-center font-label-code text-[12px] text-primary-container font-bold">2x / Month</td>
+</tr>
+<tr class="hover:bg-surface-container/50 transition-colors">
+<td class="p-space-md text-on-surface font-medium">1-on-1 Senior Coach Consultations</td>
+<td class="p-space-md text-center text-tertiary font-label-code">—</td>
+<td class="p-space-md text-center bg-surface-container-high/40 border-x border-surface-container-highest text-tertiary font-label-code">—</td>
+<td class="p-space-md text-center font-label-code text-[12px] text-primary-container font-bold">2 Sessions / Qtr</td>
+</tr>
+<tr class="hover:bg-surface-container/50 transition-colors">
+<td class="p-space-md text-on-surface font-medium">Periodized Mesocycle Programming Sheet</td>
+<td class="p-space-md text-center text-tertiary font-label-code">—</td>
+<td class="p-space-md text-center bg-surface-container-high/40 border-x border-surface-container-highest font-label-code text-[12px] text-on-surface">Template Library</td>
+<td class="p-space-md text-center font-label-code text-[12px] text-primary-container font-bold">Custom Quarterly Update</td>
+</tr>
+<!-- Category: AMENITIES & RECOVERY -->
+<tr class="bg-surface-container/30">
+<td class="p-space-sm px-space-md font-label-code text-label-code uppercase tracking-widest text-primary-container" colspan="4">
+                // 03: AMENITIES &amp; RECOVERY
+              </td>
+</tr>
+<tr class="hover:bg-surface-container/50 transition-colors">
+<td class="p-space-md text-on-surface font-medium">Infrared Sauna &amp; Cold Plunge Quarters</td>
+<td class="p-space-md text-center"><span class="material-symbols-outlined text-primary-container text-[20px]">check</span></td>
+<td class="p-space-md text-center bg-surface-container-high/40 border-x border-surface-container-highest"><span class="material-symbols-outlined text-primary-container text-[20px]">check</span></td>
+<td class="p-space-md text-center"><span class="material-symbols-outlined text-primary-container text-[20px]">check</span></td>
+</tr>
+<tr class="hover:bg-surface-container/50 transition-colors">
+<td class="p-space-md text-on-surface font-medium">Complimentary Guest Passes</td>
+<td class="p-space-md text-center text-tertiary font-label-code">—</td>
+<td class="p-space-md text-center bg-surface-container-high/40 border-x border-surface-container-highest font-label-code text-[12px] text-on-surface">2 Passes / Mo</td>
+<td class="p-space-md text-center font-label-code text-[12px] text-primary-container font-bold">Unlimited Weekends</td>
+</tr>
+<tr class="hover:bg-surface-container/50 transition-colors">
+<td class="p-space-md text-on-surface font-medium">IDF Official Heavy Lifting Gear Bundle</td>
+<td class="p-space-md text-center text-tertiary font-label-code">—</td>
+<td class="p-space-md text-center bg-surface-container-high/40 border-x border-surface-container-highest font-label-code text-[12px] text-secondary">IDF Shaker &amp; Wrap</td>
+<td class="p-space-md text-center font-label-code text-[12px] text-on-surface font-bold">Full Kit + Leather Belt</td>
+</tr>
+<tr class="hover:bg-surface-container/50 transition-colors">
+<td class="p-space-md text-on-surface font-medium">Contract Terms &amp; Renewal Flexibility</td>
+<td class="p-space-md text-center font-label-code text-[12px] text-secondary">30-day rolling</td>
+<td class="p-space-md text-center bg-surface-container-high/40 border-x border-surface-container-highest font-label-code text-[12px] text-on-surface">Quarterly billing</td>
+<td class="p-space-md text-center font-label-code text-[12px] text-on-surface">Annual commitment</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- SECTION 4: FREQUENTLY ENQUIRED FAQ ACCORDION -->
+<section class="w-full px-margin-mobile md:px-margin py-space-xl bg-surface-container-lowest">
+<div class="max-w-4xl mx-auto">
+<!-- Section Header -->
+<div class="mb-space-lg text-center md:text-left">
+<span class="font-label-code text-label-code text-primary-container uppercase tracking-widest">// CLEAR TERMS &amp; OPERATIONAL STANDARDS</span>
+<h2 class="font-headline-lg text-headline-lg uppercase text-on-surface mt-space-xs">
+          FREQUENTLY ENQUIRED // ADMISSIONS &amp; PROTOCOL
+        </h2>
+<p class="font-body-md text-body-md text-secondary">
+          Everything you need to know about testing the platform, induction, cancellation policies, and freeze options.
+        </p>
+</div>
+<!-- Accordion Stack -->
+<div class="flex flex-col gap-space-sm">
+<!-- FAQ 1 -->
+<details class="group bg-surface-container-low border border-surface-container-highest rounded-DEFAULT open:border-primary-container transition-all">
+<summary class="flex items-center justify-between p-space-md cursor-pointer select-none list-none text-on-surface hover:text-primary-container font-headline-sm text-headline-sm uppercase tracking-wide">
+<span>01 // What is the cancellation policy for monthly and quarterly memberships?</span>
+<span class="material-symbols-outlined text-secondary group-open:rotate-180 group-open:text-primary-container transition-transform">expand_more</span>
+</summary>
+<div class="px-space-md pb-space-md pt-0 font-body-sm text-body-sm text-secondary border-t border-surface-container-highest mt-space-xs">
+            Monthly memberships operate on a continuous 30-day billing cycle. You may cancel at any time with a 14-day notice before your next billing date. Quarterly and Annual memberships are pre-paid commitment blocks with prorated refunds only applicable upon documented medical exception.
+          </div>
+</details>
+<!-- FAQ 2 -->
+<details class="group bg-surface-container-low border border-surface-container-highest rounded-DEFAULT open:border-primary-container transition-all">
+<summary class="flex items-center justify-between p-space-md cursor-pointer select-none list-none text-on-surface hover:text-primary-container font-headline-sm text-headline-sm uppercase tracking-wide">
+<span>02 // Is there an initiation or onboarding registration fee?</span>
+<span class="material-symbols-outlined text-secondary group-open:rotate-180 group-open:text-primary-container transition-transform">expand_more</span>
+</summary>
+<div class="px-space-md pb-space-md pt-0 font-body-sm text-body-sm text-secondary border-t border-surface-container-highest mt-space-xs">
+            Zero initiation fees or commercial fluff charges. Every member undergoes a mandatory 45-minute biometric safety and platform etiquette induction prior to first solo lift at no additional charge.
+          </div>
+</details>
+<!-- FAQ 3 -->
+<details class="group bg-surface-container-low border border-surface-container-highest rounded-DEFAULT open:border-primary-container transition-all">
+<summary class="flex items-center justify-between p-space-md cursor-pointer select-none list-none text-on-surface hover:text-primary-container font-headline-sm text-headline-sm uppercase tracking-wide">
+<span>03 // Can I pause or freeze my membership for travel or recovery?</span>
+<span class="material-symbols-outlined text-secondary group-open:rotate-180 group-open:text-primary-container transition-transform">expand_more</span>
+</summary>
+<div class="px-space-md pb-space-md pt-0 font-body-sm text-body-sm text-secondary border-t border-surface-container-highest mt-space-xs">
+            Yes. Quarterly and Annual members can freeze their membership for up to 60 days per calendar year in minimum 14-day increments by submitting a request through the member portal.
+          </div>
+</details>
+<!-- FAQ 4 -->
+<details class="group bg-surface-container-low border border-surface-container-highest rounded-DEFAULT open:border-primary-container transition-all">
+<summary class="flex items-center justify-between p-space-md cursor-pointer select-none list-none text-on-surface hover:text-primary-container font-headline-sm text-headline-sm uppercase tracking-wide">
+<span>04 // Can I try the facility before committing to a membership tier?</span>
+<span class="material-symbols-outlined text-secondary group-open:rotate-180 group-open:text-primary-container transition-transform">expand_more</span>
+</summary>
+<div class="px-space-md pb-space-md pt-0 font-body-sm text-body-sm text-secondary border-t border-surface-container-highest mt-space-xs">
+            Absolutely. We encourage all prospective athletes to book a complimentary Day 1 Trial Session and platform orientation before selecting a tier.
+          </div>
+</details>
+<!-- FAQ 5 -->
+<details class="group bg-surface-container-low border border-surface-container-highest rounded-DEFAULT open:border-primary-container transition-all">
+<summary class="flex items-center justify-between p-space-md cursor-pointer select-none list-none text-on-surface hover:text-primary-container font-headline-sm text-headline-sm uppercase tracking-wide">
+<span>05 // Are coach-led training programs included in the membership?</span>
+<span class="material-symbols-outlined text-secondary group-open:rotate-180 group-open:text-primary-container transition-transform">expand_more</span>
+</summary>
+<div class="px-space-md pb-space-md pt-0 font-body-sm text-body-sm text-secondary border-t border-surface-container-highest mt-space-xs">
+            Standard memberships provide full independent platform access and facility amenities. Structured coaching programs and 1-on-1 kinematic sessions can be bundled into any tier with preferred member pricing.
+          </div>
+</details>
+</div>
+</div>
+</section>
+<!-- SECTION 5: ADMISSIONS ENQUIRY CALL-TO-ACTION BAND -->
+<section class="w-full px-margin-mobile md:px-margin py-space-xl bg-surface-container-lowest" id="enquire-band">
+<div class="max-w-7xl mx-auto bg-surface-container border-2 border-surface-container-highest p-space-lg md:p-space-xl rounded-DEFAULT relative overflow-hidden">
+<!-- Top technical badge -->
+<div class="flex items-center justify-between mb-space-md pb-space-sm border-b border-surface-container-highest">
+<span class="font-label-code text-label-code text-primary-container font-bold">// SEC-04 // ADMISSIONS DISPATCH</span>
+<span class="font-label-code text-[11px] text-tertiary">AUTHENTICATED CHANNEL</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+<!-- Text Column -->
+<div class="lg:col-span-5 flex flex-col gap-space-xs">
+<h2 class="font-headline-lg text-headline-lg uppercase text-on-surface leading-tight">
+            READY TO JOIN THE RANKS? SUBMIT YOUR ADMISSIONS ENQUIRY.
+          </h2>
+<p class="font-body-md text-body-md text-secondary mt-space-xs">
+            Speak directly with our platform director to verify roster capacity, discuss training goals, or schedule a facility walk-through.
+          </p>
+<div class="mt-space-md p-space-sm bg-surface-container-low rounded-DEFAULT border border-surface-container-highest flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary-container text-[20px]">verified_user</span>
+<span class="font-label-code text-[11px] text-secondary">ROSTER SPACE STRICTLY CAPPED AT 250 ACTIVE LIFTERS</span>
+</div>
+</div>
+<!-- Form Column -->
+<div class="lg:col-span-7 bg-surface-container-low p-space-md md:p-space-lg rounded-DEFAULT border border-surface-container-highest">
+<form class="flex flex-col gap-space-md" onsubmit="event.preventDefault(); alert('Enquiry received. A Sector 04 coach will review your telemetry within 24 hours.');">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Name Input -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">LIFTER FULL NAME</label>
+<input class="bg-surface border border-surface-container-highest text-on-surface font-body-sm text-body-sm px-space-md py-space-sm rounded-DEFAULT focus:outline-none focus:border-primary-container placeholder:text-outline transition-colors" placeholder="e.g. Marcus Vance" required="" type="text"/>
+</div>
+<!-- Email Input -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">CONTACT COMM ADDRESS (EMAIL)</label>
+<input class="bg-surface border border-surface-container-highest text-on-surface font-body-sm text-body-sm px-space-md py-space-sm rounded-DEFAULT focus:outline-none focus:border-primary-container placeholder:text-outline transition-colors" placeholder="m.vance@powerlifting.io" required="" type="email"/>
+</div>
+</div>
+<!-- Tier Dropdown -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">INTENDED COMMITMENT TIER</label>
+<div class="relative">
+<select class="w-full bg-surface border border-surface-container-highest text-on-surface font-body-sm text-body-sm px-space-md py-space-sm rounded-DEFAULT focus:outline-none focus:border-primary-container appearance-none transition-colors pr-10 cursor-pointer">
+<option selected="" value="quarterly">Quarterly Protocol ($72/mo - Recommended)</option>
+<option value="monthly">Monthly Access ($85/mo - Flexible)</option>
+<option value="annual">Annual Standard ($60/mo - Maximum Discipline)</option>
+</select>
+<span class="material-symbols-outlined pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-secondary text-[20px]">expand_more</span>
+</div>
+</div>
+<!-- Submit Button -->
+<div class="mt-space-xs flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<button class="w-full sm:w-auto inline-flex items-center justify-center gap-space-xs bg-primary-container text-on-primary-container hover:bg-primary font-headline-sm text-headline-sm uppercase tracking-wider px-space-xl py-space-sm rounded-DEFAULT font-bold transition-all shadow-md" type="submit">
+<span>SUBMIT ENQUIRY</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<span class="font-label-code text-[11px] text-tertiary text-center sm:text-right">
+                Biometric waiver and platform code of conduct signed upon first entry.
+              </span>
+</div>
+</form>
+</div>
+</div>
+</div>
+</section>
+</div></main><footer class="w-full bg-surface-container-lowest border-t border-surface-container-highest"><div class="w-full px-margin py-space-xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-gutter mb-space-xl"><div class="lg:col-span-2 flex flex-col gap-space-md"><div class="flex items-center gap-space-sm"><span class="font-headline-md text-headline-md uppercase tracking-wider text-on-surface">Iron District Fitness</span></div><p class="font-body-sm text-body-sm text-secondary max-w-sm">Industrial strength laboratory dedicated to serious lifters, disciplined athletes, and progressive overload.</p><div class="flex flex-col gap-space-xs font-label-code text-label-code text-secondary"><span class="text-outline">LOCATION:</span><span>402 Foundry Way, Industrial Quarter, Sector 4</span><span class="text-outline mt-space-xs">COMMS:</span><span>+1 (555) 019-4821</span></div></div><div class="flex flex-col gap-space-sm"><span class="font-label-code text-label-code text-primary uppercase tracking-widest">// Programs</span><ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-secondary"><li class="hover:text-primary-container transition-colors"><a data-path="programs" href="#">Heavy Barbell Club</a></li><li class="hover:text-primary-container transition-colors"><a data-path="programs" href="#">Hypertrophy Lab</a></li><li class="hover:text-primary-container transition-colors"><a data-path="programs" href="#">Powerlifting Precision</a></li><li class="hover:text-primary-container transition-colors"><a data-path="programs" href="#">Conditioning Matrix</a></li></ul></div><div class="flex flex-col gap-space-sm"><span class="font-label-code text-label-code text-primary uppercase tracking-widest">// The Facility</span><ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-secondary"><li class="hover:text-primary-container transition-colors"><a data-path="contact" href="#">Sector 4 Arsenal</a></li><li class="hover:text-primary-container transition-colors"><a data-path="contact" href="#">Calibrated Steel</a></li><li class="hover:text-primary-container transition-colors"><a data-path="contact" href="#">Platform Guidelines</a></li><li class="hover:text-primary-container transition-colors"><a data-path="contact" href="#">Recovery Quarters</a></li></ul></div><div class="flex flex-col gap-space-sm"><span class="font-label-code text-label-code text-primary uppercase tracking-widest">// Memberships</span><ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-secondary"><li class="hover:text-primary-container transition-colors"><a data-path="membership" href="#">Iron Foundation</a></li><li class="hover:text-primary-container transition-colors"><a data-path="membership" href="#">Performance Tier</a></li><li class="hover:text-primary-container transition-colors"><a data-path="membership" href="#">Elite Access</a></li><li class="hover:text-primary-container transition-colors"><a data-path="book-trial" href="#">Free Trial Session</a></li></ul></div><div class="flex flex-col gap-space-sm"><span class="font-label-code text-label-code text-primary uppercase tracking-widest">// Support &amp; Feed</span><ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-secondary mb-space-sm"><li class="hover:text-primary-container transition-colors"><a data-path="contact" href="#">Facility Protocol</a></li><li class="hover:text-primary-container transition-colors"><a data-path="contact" href="#">Direct Inquiries</a></li></ul><div class="flex items-center gap-space-sm"><a aria-label="Instagram" class="w-8 h-8 rounded-DEFAULT bg-surface-container flex items-center justify-center text-secondary hover:text-primary-container hover:bg-surface-container-high transition-colors" href="#"><span class="material-symbols-outlined text-[16px]">photo_camera</span></a><a aria-label="Facebook" class="w-8 h-8 rounded-DEFAULT bg-surface-container flex items-center justify-center text-secondary hover:text-primary-container hover:bg-surface-container-high transition-colors" href="#"><span class="material-symbols-outlined text-[16px]">public</span></a><a aria-label="YouTube" class="w-8 h-8 rounded-DEFAULT bg-surface-container flex items-center justify-center text-secondary hover:text-primary-container hover:bg-surface-container-high transition-colors" href="#"><span class="material-symbols-outlined text-[16px]">smart_display</span></a><a aria-label="X" class="w-8 h-8 rounded-DEFAULT bg-surface-container flex items-center justify-center text-secondary hover:text-primary-container hover:bg-surface-container-high transition-colors" href="#"><span class="material-symbols-outlined text-[16px]">tag</span></a></div></div></div><div class="pt-space-lg border-t border-surface-container-high flex flex-col md:flex-row items-center justify-between gap-space-sm"><span class="font-label-code text-label-code text-secondary">© 2025 Iron District Fitness Ltd. Built by Discipline. All rights reserved. Portfolio demo brand.</span><div class="flex items-center gap-space-md font-label-code text-label-code text-outline"><a class="hover:text-on-surface transition-colors" href="#">TERMS</a><span>//</span><a class="hover:text-on-surface transition-colors" href="#">PRIVACY</a><span>//</span><a class="hover:text-on-surface transition-colors" href="#">SAFETY PROTOCOL</a></div></div></div></footer></body></html>

@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&amp;family=Inter:wght@400;600&amp;family=Space+Mono:wght@700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-secondary": "#303030", "primary-fixed": "#ffdbd0", "on-tertiary-fixed-variant": "#474746", "primary": "#ffb59e", "inverse-surface": "#e5e2e1", "on-secondary-fixed-variant": "#474746", "secondary-fixed-dim": "#c8c6c5", "error": "#ffb4ab", "surface-dim": "#131313", "on-error-container": "#ffdad6", "surface-container-low": "#1c1b1b", "surface-container-highest": "#353534", "background": "#131313", "inverse-on-surface": "#313030", "inverse-primary": "#ae3200", "on-tertiary-fixed": "#1c1b1b", "surface-container": "#201f1f", "primary-container": "#ff5a1f", "on-secondary-container": "#b7b5b4", "outline": "#ab897f", "secondary-container": "#474746", "tertiary-container": "#939191", "surface-variant": "#353534", "tertiary-fixed": "#e5e2e1", "surface-tint": "#ffb59e", "on-error": "#690005", "primary-fixed-dim": "#ffb59e", "on-primary-fixed-variant": "#852400", "secondary": "#c8c6c5", "tertiary-fixed-dim": "#c8c6c5", "on-primary-fixed": "#3a0b00", "tertiary": "#c8c6c5", "on-secondary-fixed": "#1b1c1c", "on-surface": "#e5e2e1", "error-container": "#93000a", "on-primary-container": "#541400", "on-primary": "#5e1700", "secondary-fixed": "#e4e2e1", "surface": "#131313", "on-background": "#e5e2e1", "surface-container-lowest": "#0e0e0e", "outline-variant": "#5b4038", "on-tertiary-container": "#2b2a2a", "surface-bright": "#3a3939", "surface-container-high": "#2a2a2a", "on-surface-variant": "#e4beb3", "on-tertiary": "#313030" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "margin-mobile": "1.25rem", "gutter": "1.5rem", "space-md": "1rem", "space-xl": "2.5rem", "space-lg": "1.5rem", "space-sm": "0.5rem", "margin": "3rem", "gutter-mobile": "1rem", "space-xs": "0.25rem" }, "fontFamily": { "display-xl-mobile": [ "Barlow Condensed" ], "label-sm": [ "Inter" ], "label-md": [ "Inter" ], "body-md": [ "Inter" ], "label-code": [ "Space Mono" ], "display-xl": [ "Barlow Condensed" ], "headline-sm": [ "Barlow Condensed" ], "body-sm": [ "Inter" ], "headline-md": [ "Barlow Condensed" ], "headline-lg": [ "Barlow Condensed" ], "display-lg-mobile": [ "Barlow Condensed" ], "body-lg": [ "Inter" ], "display-lg": [ "Barlow Condensed" ] }, "fontSize": { "display-xl-mobile": [ "3.5rem", { "lineHeight": "1", "letterSpacing": "-0.01em", "fontWeight": "800" } ], "label-sm": [ "0.75rem", { "lineHeight": "1.2", "letterSpacing": "0.06em", "fontWeight": "600" } ], "label-md": [ "0.875rem", { "lineHeight": "1.2", "letterSpacing": "0.04em", "fontWeight": "600" } ], "body-md": [ "1rem", { "lineHeight": "1.65", "letterSpacing": "-0.01em", "fontWeight": "400" } ], "label-code": [ "0.75rem", { "lineHeight": "1", "letterSpacing": "0.08em", "fontWeight": "700" } ], "display-xl": [ "5rem", { "lineHeight": "0.95", "letterSpacing": "-0.02em", "fontWeight": "800" } ], "headline-sm": [ "1.5rem", { "lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600" } ], "body-sm": [ "0.875rem", { "lineHeight": "1.55", "letterSpacing": "0em", "fontWeight": "400" } ], "headline-md": [ "2rem", { "lineHeight": "1.15", "letterSpacing": "0.01em", "fontWeight": "700" } ], "headline-lg": [ "2.5rem", { "lineHeight": "1.1", "letterSpacing": "0em", "fontWeight": "700" } ], "display-lg-mobile": [ "2.75rem", { "lineHeight": "1.05", "letterSpacing": "-0.01em", "fontWeight": "800" } ], "body-lg": [ "1.125rem", { "lineHeight": "1.7", "letterSpacing": "-0.01em", "fontWeight": "400" } ], "display-lg": [ "3.75rem", { "lineHeight": "1", "letterSpacing": "-0.01em", "fontWeight": "800" } ] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 w-full z-50 bg-surface-container-lowest/90 backdrop-blur-md border-b border-surface-container-highest"><div class="h-20 w-full px-margin flex items-center justify-between"><div class="flex items-center gap-space-md"><img alt="Iron District Fitness Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Vz96llEiwupidn4iFzy6NgW3IBJ2etOlv84UPzAr3-PhlPHBW2ttIevM2RfUzNRWJL9DgDhu5yqgcJx1wYNFsqM2tNc-frPZ_xb_i_9Ak7ihW68V8DPueeX_RMwxFHJDyz6R5E48nOzyz1Cuk-l7Pzu17OBkyXSoyi_uICFo3xgUgrOE9rN47zVuBVw0Ar4NGE-j3xuPb5TDUbKxyRwAaDTKt88wylF87VZXPGvTvXMm3MQPrEl0PnKfPx"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm uppercase tracking-wider text-on-surface leading-none">Iron District</span><span class="font-label-code text-label-code uppercase tracking-widest text-outline text-[10px]">Strength Lab // SEC-04</span></div></div><nav class="hidden md:flex items-center gap-space-xl" data-active-classes="text-primary-container font-headline-sm"><a class="font-headline-sm text-headline-sm uppercase tracking-wide text-secondary hover:text-on-surface transition-colors" data-path="home" href="#">Home</a><a class="font-headline-sm text-headline-sm uppercase tracking-wide text-secondary hover:text-on-surface transition-colors" data-path="programs" href="#">Programs</a><a class="font-headline-sm text-headline-sm uppercase tracking-wide text-secondary hover:text-on-surface transition-colors" data-path="trainers" href="#">Trainers</a><a class="font-headline-sm text-headline-sm uppercase tracking-wide text-secondary hover:text-on-surface transition-colors" data-path="membership" href="#">Membership</a><a class="font-headline-sm text-headline-sm uppercase tracking-wide text-secondary hover:text-on-surface transition-colors" data-path="contact" href="#">Contact</a></nav><div class="flex items-center gap-space-md"><a class="hidden sm:inline-flex items-center justify-center bg-primary-container text-on-primary font-headline-sm text-headline-sm uppercase tracking-wider px-space-lg py-space-sm rounded-DEFAULT hover:bg-primary hover:text-on-primary transition-colors" data-path="book-trial" href="#">Book a Free Trial</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface-container-lowest min-h-screen"><div class="flex flex-col w-full">
+<!-- SECTION 1: HEADER & TELEMETRY FILTER BAR -->
+<section class="w-full px-margin-mobile md:px-margin pt-space-xl pb-space-lg bg-surface-container-lowest border-b border-surface-container-highest">
+<div class="max-w-7xl mx-auto flex flex-col gap-space-lg">
+<!-- Overline & Breadcrumb Metadata -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs font-label-code text-label-code uppercase tracking-widest text-primary-container">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span>// CURRICULUM &amp; DISCIPLINES // SECTOR 04</span>
+</div>
+<div class="flex items-center gap-space-md font-label-code text-label-code text-secondary">
+<span class="text-outline">ENV:</span>
+<span>CALIBRATED STEEL ONLY</span>
+<span class="text-outline">|</span>
+<span class="text-outline">CADENCE:</span>
+<span>MESOCYCLE V4.2</span>
+</div>
+</div>
+<!-- Main Headline & Editorial Hook -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-end">
+<div class="lg:col-span-8">
+<h1 class="font-display-xl text-display-xl uppercase tracking-tight text-on-surface leading-none">
+            TRAINING <span class="text-primary-container">PROGRAMS.</span>
+</h1>
+</div>
+<div class="lg:col-span-4 flex flex-col justify-end">
+<p class="font-body-md text-body-md text-secondary">
+            Systematic physical preparation engineered through empirical biomechanics, calibrated barbell loading, and uncompromising execution standards. No gimmicks. Only progressive mechanical tension.
+          </p>
+</div>
+</div>
+<!-- Telemetry Segmented Filter Bar -->
+<div class="pt-space-md border-t border-surface-container-high flex flex-wrap items-center justify-between gap-space-sm" id="filter-wrapper">
+<div class="flex flex-wrap items-center gap-space-xs">
+<button class="filter-btn px-space-md py-space-xs rounded-DEFAULT bg-primary-container text-on-primary-container font-label-code text-label-code uppercase tracking-wider transition-all" data-filter="all">
+            [ ALL DISCIPLINES ]
+          </button>
+<button class="filter-btn px-space-md py-space-xs rounded-DEFAULT bg-surface-container border border-surface-container-highest text-secondary hover:text-on-surface hover:border-outline font-label-code text-label-code uppercase tracking-wider transition-all" data-filter="strength">
+            BARBELL // POWER
+          </button>
+<button class="filter-btn px-space-md py-space-xs rounded-DEFAULT bg-surface-container border border-surface-container-highest text-secondary hover:text-on-surface hover:border-outline font-label-code text-label-code uppercase tracking-wider transition-all" data-filter="hypertrophy">
+            HYPERTROPHY LAB
+          </button>
+<button class="filter-btn px-space-md py-space-xs rounded-DEFAULT bg-surface-container border border-surface-container-highest text-secondary hover:text-on-surface hover:border-outline font-label-code text-label-code uppercase tracking-wider transition-all" data-filter="metabolic">
+            METABOLIC
+          </button>
+<button class="filter-btn px-space-md py-space-xs rounded-DEFAULT bg-surface-container border border-surface-container-highest text-secondary hover:text-on-surface hover:border-outline font-label-code text-label-code uppercase tracking-wider transition-all" data-filter="coaching">
+            1-ON-1 COACHING
+          </button>
+<button class="filter-btn px-space-md py-space-xs rounded-DEFAULT bg-surface-container border border-surface-container-highest text-secondary hover:text-on-surface hover:border-outline font-label-code text-label-code uppercase tracking-wider transition-all" data-filter="functional">
+            STRONGMAN &amp; DURABILITY
+          </button>
+</div>
+<div class="hidden xl:flex items-center gap-space-sm font-label-code text-label-code text-outline">
+<span>PLATFORM CAP: <strong class="text-on-surface font-normal">85% LIVE LOAD</strong></span>
+<span>//</span>
+<span>SECTOR: <strong class="text-primary-container font-normal">SEC-04 OLYMPIA</strong></span>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 2: PROGRAMS DOSSIER (ALTERNATING 5 MODULES) -->
+<section class="w-full px-margin-mobile md:px-margin py-space-xl flex flex-col gap-space-xl max-w-7xl mx-auto">
+<!-- PROGRAM 01: STRENGTH TRAINING (Image Left, Content Right) -->
+<article class="program-item w-full bg-surface-container-low border border-surface-container-highest rounded-DEFAULT overflow-hidden transition-all duration-300 hover:border-outline" data-category="strength">
+<div class="grid grid-cols-1 lg:grid-cols-12 min-h-[560px]">
+<!-- Left Media Pane -->
+<div class="lg:col-span-5 relative min-h-[320px] lg:min-h-full overflow-hidden bg-surface-container">
+<div class="w-full h-full bg-cover bg-center grayscale contrast-125 transition-transform duration-700 hover:scale-105" data-alt="High-contrast black and white dramatic gym photography of an elite male lifter executing a heavy low-bar barbell back squat in an industrial power rack, chalk mist floating in dark atmospheric directional spotlighting, moody industrial textures" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB-3_9_J1ZvUgmAnG-oc1ApBx-KcZYh1mhHDM9aBhEd-8waAG4JN591ZMDTGrLXSq-g46rV0EO6F63HiXrK1gTXJRoPH5l4Kt7DTjx2jtMCKvMVZUBU9HJzp1FCqiw0hVqr51O61NB00mU2zBJzrNLpL3rFVbZfl-Kq5qbQ6pG3W851OlH498q9bJLje9ACNEs_hUZuhrGyokw4fo3hHn8j82r-FscH-upABQtEXBBe')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent lg:hidden"></div>
+<div class="absolute top-space-md left-space-md flex flex-col gap-space-xs">
+<span class="px-space-sm py-space-xs bg-surface-container-lowest/90 backdrop-blur-md text-primary-container font-label-code text-label-code uppercase tracking-widest border border-surface-container-highest">
+              SPEC: USAPL / IPF GRADE
+            </span>
+</div>
+<div class="absolute bottom-space-md left-space-md hidden lg:flex items-center gap-space-xs font-label-code text-label-code text-secondary bg-surface-container-lowest/80 px-space-sm py-space-xs backdrop-blur-sm">
+<span class="material-symbols-outlined text-[14px] text-primary-container">tune</span>
+<span>BAR: 20KG ELEIKO POWERLIFTING NX</span>
+</div>
+</div>
+<!-- Right Content Spec Sheet -->
+<div class="lg:col-span-7 p-space-md sm:p-space-lg lg:p-space-xl flex flex-col justify-between gap-space-lg">
+<div>
+<div class="flex items-center justify-between gap-space-sm mb-space-xs">
+<span class="font-label-code text-label-code uppercase tracking-widest text-primary-container">
+                // 01 // FOUNDATIONAL BARBELL
+              </span>
+<span class="font-label-code text-label-code text-outline uppercase tracking-wider">
+                TIER 01 PROTOCOL
+              </span>
+</div>
+<h2 class="font-display-lg text-display-lg uppercase tracking-tight text-on-surface mb-space-md leading-none">
+              STRENGTH TRAINING
+            </h2>
+<p class="font-body-md text-body-md text-secondary mb-space-lg">
+              A ruthless curriculum rooted in neuro-muscular adaptation, kinematic torque production, and verified peak 1RM development. By anchoring strictly to the primary compound lifts with periodized wave loading, lifters bypass plateaus and develop true sovereign structural density.
+            </p>
+<!-- Athlete Profile Pill Box -->
+<div class="mb-space-lg p-space-md bg-surface-container border-l-2 border-primary-container rounded-DEFAULT">
+<span class="font-label-code text-label-code text-primary-container uppercase tracking-widest block mb-space-xs">
+                TARGET ATHLETE PROFILE
+              </span>
+<p class="font-body-sm text-body-sm text-on-surface">
+                Competitive powerlifters, field athletes requiring absolute kinetic force, and advanced lifters demanding structured, objective linear &amp; undulating mesocycles.
+              </p>
+</div>
+<!-- Structured Spec Table -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-xs p-space-sm bg-surface-container-lowest border border-surface-container-highest rounded-DEFAULT mb-space-lg">
+<div class="p-space-xs flex flex-col">
+<span class="font-label-code text-label-code text-outline text-[10px] uppercase">SESSION LENGTH</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">75–90 MIN</span>
+</div>
+<div class="p-space-xs flex flex-col">
+<span class="font-label-code text-label-code text-outline text-[10px] uppercase">FREQUENCY</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">3–5X / WK</span>
+</div>
+<div class="p-space-xs flex flex-col">
+<span class="font-label-code text-label-code text-outline text-[10px] uppercase">INTENSITY RATING</span>
+<span class="font-headline-sm text-headline-sm text-primary-container">RPE 7.5–9.5</span>
+</div>
+<div class="p-space-xs flex flex-col">
+<span class="font-label-code text-label-code text-outline text-[10px] uppercase">EQUIPMENT SPEC</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">CALIBRATED STEEL</span>
+</div>
+</div>
+<!-- Key Movement Vectors -->
+<div class="flex flex-wrap items-center gap-space-xs mb-space-lg">
+<span class="font-label-code text-label-code text-outline mr-space-xs">MOVEMENTS:</span>
+<span class="px-space-sm py-space-xs rounded-DEFAULT bg-surface-container border border-surface-container-high text-secondary font-label-code text-label-code uppercase">COMPETITION SQUAT</span>
+<span class="px-space-sm py-space-xs rounded-DEFAULT bg-surface-container border border-surface-container-high text-secondary font-label-code text-label-code uppercase">PAUSED BENCH</span>
+<span class="px-space-sm py-space-xs rounded-DEFAULT bg-surface-container border border-surface-container-high text-secondary font-label-code text-label-code uppercase">CONVENTIONAL / SUMO DEADLIFT</span>
+<span class="px-space-sm py-space-xs rounded-DEFAULT bg-surface-container border border-surface-container-high text-secondary font-label-code text-label-code uppercase">STRICT OVERHEAD PRESS</span>
+</div>
+</div>
+<!-- CTAs -->
+<div class="flex flex-wrap items-center gap-space-md pt-space-md border-t border-surface-container-highest">
+<a class="inline-flex items-center justify-center bg-primary-container text-on-primary-container font-headline-sm text-headline-sm uppercase tracking-wider px-space-lg py-space-sm rounded-DEFAULT hover:bg-primary transition-colors" href="#">
+              Book a Free Trial
+            </a>
+<a class="inline-flex items-center gap-space-xs font-label-code text-label-code uppercase tracking-wider text-secondary hover:text-primary-container transition-colors" href="#">
+<span>Download Curriculum Outline</span>
+<span class="material-symbols-outlined text-[16px]">arrow_right_alt</span>
+</a>
+</div>
+</div>
+</div>
+</article>
+<!-- PROGRAM 02: MUSCLE BUILDING (Content Left, Image Right) -->
+<article class="program-item w-full bg-surface-container-low border border-surface-container-highest rounded-DEFAULT overflow-hidden transition-all duration-300 hover:border-outline" data-category="hypertrophy">
+<div class="grid grid-cols-1 lg:grid-cols-12 min-h-[560px]">
+<!-- Left Content Spec Sheet -->
+<div class="lg:col-span-7 p-space-md sm:p-space-lg lg:p-space-xl flex flex-col justify-between gap-space-lg order-2 lg:order-1">
+<div>
+<div class="flex items-center justify-between gap-space-sm mb-space-xs">
+<span class="font-label-code text-label-code uppercase tracking-widest text-primary-container">
+                // 02 // HYPERTROPHY PROTOCOL
+              </span>
+<span class="font-label-code text-label-code text-outline uppercase tracking-wider">
+                ANABOLIC VOLUMETRICS
+              </span>
+</div>
+<h2 class="font-display-lg text-display-lg uppercase tracking-tight text-on-surface mb-space-md leading-none">
+              MUSCLE BUILDING
+            </h2>
+<p class="font-body-md text-body-md text-secondary mb-space-lg">
+              Hypertrophy elevated beyond casual bodybuilding splits. Driven by precise mechanical tension at long muscle lengths, systemic fatigue management, and high-frequency compound accessories calibrated to induce sarcoplasmic and myofibrillar hypertrophy.
+            </p>
+<!-- Athlete Profile Pill Box -->
+<div class="mb-space-lg p-space-md bg-surface-container border-l-2 border-primary-container rounded-DEFAULT">
+<span class="font-label-code text-label-code text-primary-container uppercase tracking-widest block mb-space-xs">
+                TARGET ATHLETE PROFILE
+              </span>
+<p class="font-body-sm text-body-sm text-on-surface">
+                Lifters pursuing muscular cross-sectional area, structural symmetry, balanced joint integrity, and zero wasted junk volume.
+              </p>
+</div>
+<!-- Structured Spec Table -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-xs p-space-sm bg-surface-container-lowest border border-surface-container-highest rounded-DEFAULT mb-space-lg">
+<div class="p-space-xs flex flex-col">
+<span class="font-label-code text-label-code text-outline text-[10px] uppercase">SESSION LENGTH</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">60–75 MIN</span>
+</div>
+<div class="p-space-xs flex flex-col">
+<span class="font-label-code text-label-code text-outline text-[10px] uppercase">FREQUENCY</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">4–6X / WK</span>
+</div>
+<div class="p-space-xs flex flex-col">
+<span class="font-label-code text-label-code text-outline text-[10px] uppercase">TARGET RIR</span>
+<span class="font-headline-sm text-headline-sm text-primary-container">1–3 RIR</span>
+</div>
+<div class="p-space-xs flex flex-col">
+<span class="font-label-code text-label-code text-outline text-[10px] uppercase">MACHINERY SPEC</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">PRIME &amp; NAUTILUS</span>
+</div>
+</div>
+<!-- Key Movement Vectors -->
+<div class="flex flex-wrap items-center gap-space-xs mb-space-lg">
+<span class="font-label-code text-label-code text-outline mr-space-xs">FOCUS:</span>
+<span class="px-space-sm py-space-xs rounded-DEFAULT bg-surface-container border border-surface-container-high text-secondary font-label-code text-label-code uppercase">HACK SQUAT VARIANTS</span>
+<span class="px-space-sm py-space-xs rounded-DEFAULT bg-surface-container border border-surface-container-high text-secondary font-label-code text-label-code uppercase">INCLINE DUMBBELL CLUSTERS</span>
+<span class="px-space-sm py-space-xs rounded-DEFAULT bg-surface-container border border-surface-container-high text-secondary font-label-code text-label-code uppercase">CHEST-SUPPORTED T-BAR</span>
+<span class="px-space-sm py-space-xs rounded-DEFAULT bg-surface-container border border-surface-container-high text-secondary font-label-code text-label-code uppercase">ISOLATED TRICEPS / BICEPS EXT</span>
+</div>
+</div>
+<!-- CTAs -->
+<div class="flex flex-wrap items-center gap-space-md pt-space-md border-t border-surface-container-highest">
+<a class="inline-flex items-center justify-center bg-primary-container text-on-primary-container font-headline-sm text-headline-sm uppercase tracking-wider px-space-lg py-space-sm rounded-DEFAULT hover:bg-primary transition-colors" href="#">
+              Book a Free Trial
+            </a>
+<a class="inline-flex items-center gap-space-xs font-label-code text-label-code uppercase tracking-wider text-secondary hover:text-primary-container transition-colors" href="#">
+<span>Download Curriculum Outline</span>
+<span class="material-symbols-outlined text-[16px]">arrow_right_alt</span>
+</a>
+</div>
+</div>
+<!-- Right Media Pane -->
+<div class="lg:col-span-5 relative min-h-[320px] lg:min-h-full overflow-hidden bg-surface-container order-1 lg:order-2">
+<div class="w-full h-full bg-cover bg-center grayscale contrast-125 transition-transform duration-700 hover:scale-105" data-alt="Dark aesthetic gym photograph of a muscular female athlete performing heavy chest-supported dumbbell rows in a gritty industrial gym setting, intense focus, visible vascularity and muscle striation, sharp directional low-key shadows with orange lighting accents" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAqz1n-FptsoAgsnjbY7DXH731vz0sbCUAJUWTIId7oipTWfoCd6321OFB4jrB809Zjkgj9bgy4S755shJ3xoltVvtpqby-Fp_4mtej7gOeOUI2HnkrzBsAxVLblNhnm0045sx_EwZfYxWsImsJvFkGmEzgZBdYy1YSGlVpx6FvRUoUsJFV-zthsNcRIOSUvv49j0oNXijgeJSkImnuXbkcLEaiZ-7Hf2SoM360rT1Y')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent lg:hidden"></div>
+<div class="absolute top-space-md right-space-md flex flex-col gap-space-xs">
+<span class="px-space-sm py-space-xs bg-surface-container-lowest/90 backdrop-blur-md text-primary-container font-label-code text-label-code uppercase tracking-widest border border-surface-container-highest">
+              VARIABLE RESISTANCE LOAD
+            </span>
+</div>
+<div class="absolute bottom-space-md right-space-md hidden lg:flex items-center gap-space-xs font-label-code text-label-code text-secondary bg-surface-container-lowest/80 px-space-sm py-space-xs backdrop-blur-sm">
+<span class="material-symbols-outlined text-[14px] text-primary-container">science</span>
+<span>TENSION: PEAK LENGTHENED STRETCH</span>
+</div>
+</div>
+</div>
+</article>
+<!-- PROGRAM 03: FAT-LOSS TRAINING (Image Left, Content Right) -->
+<article class="program-item w-full bg-surface-container-low border border-surface-container-highest rounded-DEFAULT overflow-hidden transition-all duration-300 hover:border-outline" data-category="metabolic">
+<div class="grid grid-cols-1 lg:grid-cols-12 min-h-[560px]">
+<!-- Left Media Pane -->
+<div class="lg:col-span-5 relative min-h-[320px] lg:min-h-full overflow-hidden bg-surface-container">
+<div class="w-full h-full bg-cover bg-center grayscale contrast-125 transition-transform duration-700 hover:scale-105" data-alt="Intense high-energy photograph of a disciplined athlete pushing a heavy weighted metal prowler sled along an indoor rubberized turf track, sweat beads, chalk-dusted hands, dramatic cast shadows and industrial high-contrast lighting" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDyI6b_zEzF9OKw2LpHL0f0vtgwTscw1xIJAZJVfx1Zu9bSj4IjVgMrAi4_lo-Jdu2Iar51kuXiZpmgaHOBCubIYJx27yYeZBGOaDoEg0OUoDjHrOvqQ_n7tv8MTsv2vABzc_P3bfGyIN4ZfFMzBJclTdxSh8ip1clTQfKoLDgvX1KFCfkBr5Eyi0OavFrUXMwIU0XgmX5uNOM6I1gGZBtRCk7bUHgsrC5JTOu7aP6H')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent lg:hidden"></div>
+<div class="absolute top-space-md left-space-md flex flex-col gap-space-xs">
+<span class="px-space-sm py-space-xs bg-surface-container-lowest/90 backdrop-blur-md text-primary-container font-label-code text-label-code uppercase tracking-widest border border-surface-container-highest">
+              DENSITY MATRIX
+            </span>
+</div>
+<div class="absolute bottom-space-md left-space-md hidden lg:flex items-center gap-space-xs font-label-code text-label-code text-secondary bg-surface-container-lowest/80 px-space-sm py-space-xs backdrop-blur-sm">
+<span class="material-symbols-outlined text-[14px] text-primary-container">speed</span>
+<span>EPOC: ELEVATED O2 CONSUMPTION</span>
+</div>
+</div>
+<!-- Right Content Spec Sheet -->
+<div class="lg:col-span-7 p-space-md sm:p-space-lg lg:p-space-xl flex flex-col justify-between gap-space-lg">
+<div>
+<div class="flex items-center justify-between gap-space-sm mb-space-xs">
+<span class="font-label-code text-label-code uppercase tracking-widest text-primary-container">
+                // 03 // METABOLIC COMPOSITION
+              </span>
+<span class="font-label-code text-label-code text-outline uppercase tracking-wider">
+                LEAN MASS RETENTION
+              </span>
+</div>
+<h2 class="font-display-lg text-display-lg uppercase tracking-tight text-on-surface mb-space-md leading-none">
+              FAT-LOSS TRAINING
+            </h2>
+<p class="font-body-md text-body-md text-secondary mb-space-lg">
+              High-density conditioning engineered to optimize energy substrate utilization without sacrificing hard-earned skeletal muscle mass. Combining heavy sled drags, anaerobic intervals, kettlebell ballistic complexes, and timed rest density protocols.
+            </p>
+<!-- Athlete Profile Pill Box -->
+<div class="mb-space-lg p-space-md bg-surface-container border-l-2 border-primary-container rounded-DEFAULT">
+<span class="font-label-code text-label-code text-primary-container uppercase tracking-widest block mb-space-xs">
+                TARGET ATHLETE PROFILE
+              </span>
+<p class="font-body-sm text-body-sm text-on-surface">
+                Individuals seeking relentless body recomposition, enhanced cardiac output threshold, and high work capacity while preserving strength markers.
+              </p>
+</div>
+<!-- Structured Spec Table -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-xs p-space-sm bg-surface-container-lowest border border-surface-container-highest rounded-DEFAULT mb-space-lg">
+<div class="p-space-xs flex flex-col">
+<span class="font-label-code text-label-code text-outline text-[10px] uppercase">SESSION LENGTH</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">50–60 MIN</span>
+</div>
+<div class="p-space-xs flex flex-col">
+<span class="font-label-code text-label-code text-outline text-[10px] uppercase">FREQUENCY</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">3–4X / WK</span>
+</div>
+<div class="p-space-xs flex flex-col">
+<span class="font-label-code text-label-code text-outline text-[10px] uppercase">LACTATE ZONE</span>
+<span class="font-headline-sm text-headline-sm text-primary-container">ZONE 4–5</span>
+</div>
+<div class="p-space-xs flex flex-col">
+<span class="font-label-code text-label-code text-outline text-[10px] uppercase">APPARATUS</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">PROWLER / ROGUE ECHO</span>
+</div>
+</div>
+<!-- Key Movement Vectors -->
+<div class="flex flex-wrap items-center gap-space-xs mb-space-lg">
+<span class="font-label-code text-label-code text-outline mr-space-xs">VECTORS:</span>
+<span class="px-space-sm py-space-xs rounded-DEFAULT bg-surface-container border border-surface-container-high text-secondary font-label-code text-label-code uppercase">PROWLER TURF PUSHES</span>
+<span class="px-space-sm py-space-xs rounded-DEFAULT bg-surface-container border border-surface-container-high text-secondary font-label-code text-label-code uppercase">COMPETITION KETTLEBELL CLEANS</span>
+<span class="px-space-sm py-space-xs rounded-DEFAULT bg-surface-container border border-surface-container-high text-secondary font-label-code text-label-code uppercase">FAN BIKE HIGH-WATTAGE SPRINTS</span>
+<span class="px-space-sm py-space-xs rounded-DEFAULT bg-surface-container border border-surface-container-high text-secondary font-label-code text-label-code uppercase">FARMER CARRIES</span>
+</div>
+</div>
+<!-- CTAs -->
+<div class="flex flex-wrap items-center gap-space-md pt-space-md border-t border-surface-container-highest">
+<a class="inline-flex items-center justify-center bg-primary-container text-on-primary-container font-headline-sm text-headline-sm uppercase tracking-wider px-space-lg py-space-sm rounded-DEFAULT hover:bg-primary transition-colors" href="#">
+              Book a Free Trial
+            </a>
+<a class="inline-flex items-center gap-space-xs font-label-code text-label-code uppercase tracking-wider text-secondary hover:text-primary-container transition-colors" href="#">
+<span>Download Curriculum Outline</span>
+<span class="material-symbols-outlined text-[16px]">arrow_right_alt</span>
+</a>
+</div>
+</div>
+</div>
+</article>
+<!-- PROGRAM 04: PERSONAL TRAINING (Content Left, Image Right) -->
+<article class="program-item w-full bg-surface-container-low border border-surface-container-highest rounded-DEFAULT overflow-hidden transition-all duration-300 hover:border-outline" data-category="coaching">
+<div class="grid grid-cols-1 lg:grid-cols-12 min-h-[560px]">
+<!-- Left Content Spec Sheet -->
+<div class="lg:col-span-7 p-space-md sm:p-space-lg lg:p-space-xl flex flex-col justify-between gap-space-lg order-2 lg:order-1">
+<div>
+<div class="flex items-center justify-between gap-space-sm mb-space-xs">
+<span class="font-label-code text-label-code uppercase tracking-widest text-primary-container">
+                // 04 // 1-ON-1 COACHING LAB
+              </span>
+<span class="font-label-code text-label-code text-outline uppercase tracking-wider">
+                PRECISION BIOMECHANICS
+              </span>
+</div>
+<h2 class="font-display-lg text-display-lg uppercase tracking-tight text-on-surface mb-space-md leading-none">
+              PERSONAL TRAINING
+            </h2>
+<p class="font-body-md text-body-md text-secondary mb-space-lg">
+              Exclusive 1-on-1 kinetic guidance tailored to your exact joint levers, mobility constraints, and performance ceiling. Features high-speed kinematic video telemetry, real-time bar velocity monitoring, and fully tailored mesocycle programming.
+            </p>
+<!-- Athlete Profile Pill Box -->
+<div class="mb-space-lg p-space-md bg-surface-container border-l-2 border-primary-container rounded-DEFAULT">
+<span class="font-label-code text-label-code text-primary-container uppercase tracking-widest block mb-space-xs">
+                TARGET ATHLETE PROFILE
+              </span>
+<p class="font-body-sm text-body-sm text-on-surface">
+                Athletes returning from structural injury, high-profile professionals with limited training windows, or lifters desiring micro-level biomechanical mastery.
+              </p>
+</div>
+<!-- Structured Spec Table -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-xs p-space-sm bg-surface-container-lowest border border-surface-container-highest rounded-DEFAULT mb-space-lg">
+<div class="p-space-xs flex flex-col">
+<span class="font-label-code text-label-code text-outline text-[10px] uppercase">SESSION LENGTH</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">60 MIN</span>
+</div>
+<div class="p-space-xs flex flex-col">
+<span class="font-label-code text-label-code text-outline text-[10px] uppercase">COACHING RATIO</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">1 : 1 EXCLUSIVE</span>
+</div>
+<div class="p-space-xs flex flex-col">
+<span class="font-label-code text-label-code text-outline text-[10px] uppercase">DIAGNOSTICS</span>
+<span class="font-headline-sm text-headline-sm text-primary-container">60FPS VIDEO REVIEW</span>
+</div>
+<div class="p-space-xs flex flex-col">
+<span class="font-label-code text-label-code text-outline text-[10px] uppercase">PLATFORM ACCESS</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">RESERVED RACK</span>
+</div>
+</div>
+<!-- Key Movement Vectors -->
+<div class="flex flex-wrap items-center gap-space-xs mb-space-lg">
+<span class="font-label-code text-label-code text-outline mr-space-xs">INCLUSIONS:</span>
+<span class="px-space-sm py-space-xs rounded-DEFAULT bg-surface-container border border-surface-container-high text-secondary font-label-code text-label-code uppercase">JOINT RANGE SCREENING</span>
+<span class="px-space-sm py-space-xs rounded-DEFAULT bg-surface-container border border-surface-container-high text-secondary font-label-code text-label-code uppercase">VELOCITY-BASED TRAINING (VBT)</span>
+<span class="px-space-sm py-space-xs rounded-DEFAULT bg-surface-container border border-surface-container-high text-secondary font-label-code text-label-code uppercase">CUSTOM PERIODIZATION SPREADSHEET</span>
+<span class="px-space-sm py-space-xs rounded-DEFAULT bg-surface-container border border-surface-container-high text-secondary font-label-code text-label-code uppercase">NUTRITION MACRO-CADENCE</span>
+</div>
+</div>
+<!-- CTAs -->
+<div class="flex flex-wrap items-center gap-space-md pt-space-md border-t border-surface-container-highest">
+<a class="inline-flex items-center justify-center bg-primary-container text-on-primary-container font-headline-sm text-headline-sm uppercase tracking-wider px-space-lg py-space-sm rounded-DEFAULT hover:bg-primary transition-colors" href="#">
+              Book a Free Trial
+            </a>
+<a class="inline-flex items-center gap-space-xs font-label-code text-label-code uppercase tracking-wider text-secondary hover:text-primary-container transition-colors" href="#">
+<span>Download Curriculum Outline</span>
+<span class="material-symbols-outlined text-[16px]">arrow_right_alt</span>
+</a>
+</div>
+</div>
+<!-- Right Media Pane -->
+<div class="lg:col-span-5 relative min-h-[320px] lg:min-h-full overflow-hidden bg-surface-container order-1 lg:order-2">
+<div class="w-full h-full bg-cover bg-center grayscale contrast-125 transition-transform duration-700 hover:scale-105" data-alt="Technical close-up photograph of a seasoned strength coach kneeling beside a lifter at a deadlift platform, pointing out bar path mechanics on a tablet monitor, moody gym ambient low lighting with industrial steel background" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD-L-pgAr_MOvndtcO_xZ4NBW1C8_vjIh27PhJw1csMxlb8JkAdgyqGvIWEM6kcb8nZws_ELaLlp23hTttlo8DTmW3HC9p6-OoyhSPa4X8BGlGQSpBpadAZReQ-dqIW3cSgxlFiHU712q0szMc6cQ4wQL9hQnVB4Pk-CqhDKFjqY1Pm-addstdWnAYc7y-Qa0bTdF3b_NL-IavTauGaCNR2xktmYTZpvnHEZkXmC1sT')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent lg:hidden"></div>
+<div class="absolute top-space-md right-space-md flex flex-col gap-space-xs">
+<span class="px-space-sm py-space-xs bg-surface-container-lowest/90 backdrop-blur-md text-primary-container font-label-code text-label-code uppercase tracking-widest border border-surface-container-highest">
+              DEDICATED SECTOR ACCESS
+            </span>
+</div>
+<div class="absolute bottom-space-md right-space-md hidden lg:flex items-center gap-space-xs font-label-code text-label-code text-secondary bg-surface-container-lowest/80 px-space-sm py-space-xs backdrop-blur-sm">
+<span class="material-symbols-outlined text-[14px] text-primary-container">verified</span>
+<span>STAFF: CSCS CERTIFIED ONLY</span>
+</div>
+</div>
+</div>
+</article>
+<!-- PROGRAM 05: FUNCTIONAL FITNESS (Image Left, Content Right) -->
+<article class="program-item w-full bg-surface-container-low border border-surface-container-highest rounded-DEFAULT overflow-hidden transition-all duration-300 hover:border-outline" data-category="functional">
+<div class="grid grid-cols-1 lg:grid-cols-12 min-h-[560px]">
+<!-- Left Media Pane -->
+<div class="lg:col-span-5 relative min-h-[320px] lg:min-h-full overflow-hidden bg-surface-container">
+<div class="w-full h-full bg-cover bg-center grayscale contrast-125 transition-transform duration-700 hover:scale-105" data-alt="Raw gritty photograph of a strong male athlete loading an atlas stone onto an industrial iron platform, hands covered in tack chalk, dark steel girder architecture, stark contrast and single beam overhead lighting" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAJq06iFAqyGW3TLPWfgxYyF7RyjRHJilmEnW7bYNB_giPdiNwltiujS_5is3H_EWj7jm1Lc0yuImnOB3jjB4PHRU4_aYw5tCvN8crHOZNWM07VlRAu3NXf9mox2kpLEO3y685-aEeysJlTRbGzcHaeqKsh2R_0WINUxbi1dPNugu5eaFz89NlwP2hyy07QhY0wJku47WZI5CfK76aIpmsbdMb_URu4_7V3a2LRCyUr')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent lg:hidden"></div>
+<div class="absolute top-space-md left-space-md flex flex-col gap-space-xs">
+<span class="px-space-sm py-space-xs bg-surface-container-lowest/90 backdrop-blur-md text-primary-container font-label-code text-label-code uppercase tracking-widest border border-surface-container-highest">
+              STRONGMAN &amp; GRIP
+            </span>
+</div>
+<div class="absolute bottom-space-md left-space-md hidden lg:flex items-center gap-space-xs font-label-code text-label-code text-secondary bg-surface-container-lowest/80 px-space-sm py-space-xs backdrop-blur-sm">
+<span class="material-symbols-outlined text-[14px] text-primary-container">fitness_center</span>
+<span>AXLE &amp; LOG SPEC // HEAVY</span>
+</div>
+</div>
+<!-- Right Content Spec Sheet -->
+<div class="lg:col-span-7 p-space-md sm:p-space-lg lg:p-space-xl flex flex-col justify-between gap-space-lg">
+<div>
+<div class="flex items-center justify-between gap-space-sm mb-space-xs">
+<span class="font-label-code text-label-code uppercase tracking-widest text-primary-container">
+                // 05 // UNCONVENTIONAL DURABILITY
+              </span>
+<span class="font-label-code text-label-code text-outline uppercase tracking-wider">
+                TACTICAL CAPABILITY
+              </span>
+</div>
+<h2 class="font-display-lg text-display-lg uppercase tracking-tight text-on-surface mb-space-md leading-none">
+              FUNCTIONAL FITNESS
+            </h2>
+<p class="font-body-md text-body-md text-secondary mb-space-lg">
+              Forging non-linear real-world horsepower. Utilizing odd objects, heavy sandbags, log clean &amp; press, axle bars, and farmer walk implements. Built to harden spinal erectors, wrist flexors, and structural ligaments under non-sterile loads.
+            </p>
+<!-- Athlete Profile Pill Box -->
+<div class="mb-space-lg p-space-md bg-surface-container border-l-2 border-primary-container rounded-DEFAULT">
+<span class="font-label-code text-label-code text-primary-container uppercase tracking-widest block mb-space-xs">
+                TARGET ATHLETE PROFILE
+              </span>
+<p class="font-body-sm text-body-sm text-on-surface">
+                First responders, strongman competitors, cross-discipline lifters, and individuals looking for bulletproof physical ruggedness.
+              </p>
+</div>
+<!-- Structured Spec Table -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-xs p-space-sm bg-surface-container-lowest border border-surface-container-highest rounded-DEFAULT mb-space-lg">
+<div class="p-space-xs flex flex-col">
+<span class="font-label-code text-label-code text-outline text-[10px] uppercase">SESSION LENGTH</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">60 MIN</span>
+</div>
+<div class="p-space-xs flex flex-col">
+<span class="font-label-code text-label-code text-outline text-[10px] uppercase">FREQUENCY</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">3–4X / WK</span>
+</div>
+<div class="p-space-xs flex flex-col">
+<span class="font-label-code text-label-code text-outline text-[10px] uppercase">STRESS SYSTEM</span>
+<span class="font-headline-sm text-headline-sm text-primary-container">GRIP &amp; CORE TORQUE</span>
+</div>
+<div class="p-space-xs flex flex-col">
+<span class="font-label-code text-label-code text-outline text-[10px] uppercase">ARSENAL</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">ODD OBJECTS / LOGS</span>
+</div>
+</div>
+<!-- Key Movement Vectors -->
+<div class="flex flex-wrap items-center gap-space-xs mb-space-lg">
+<span class="font-label-code text-label-code text-outline mr-space-xs">ARSENAL:</span>
+<span class="px-space-sm py-space-xs rounded-DEFAULT bg-surface-container border border-surface-container-high text-secondary font-label-code text-label-code uppercase">HEAVY SANDBAG TO SHOULDER</span>
+<span class="px-space-sm py-space-xs rounded-DEFAULT bg-surface-container border border-surface-container-high text-secondary font-label-code text-label-code uppercase">LOG CLEAN &amp; PRESS</span>
+<span class="px-space-sm py-space-xs rounded-DEFAULT bg-surface-container border border-surface-container-high text-secondary font-label-code text-label-code uppercase">FARMERS FRAME CARRIES</span>
+<span class="px-space-sm py-space-xs rounded-DEFAULT bg-surface-container border border-surface-container-high text-secondary font-label-code text-label-code uppercase">AXLE BAR DEADLIFT</span>
+</div>
+</div>
+<!-- CTAs -->
+<div class="flex flex-wrap items-center gap-space-md pt-space-md border-t border-surface-container-highest">
+<a class="inline-flex items-center justify-center bg-primary-container text-on-primary-container font-headline-sm text-headline-sm uppercase tracking-wider px-space-lg py-space-sm rounded-DEFAULT hover:bg-primary transition-colors" href="#">
+              Book a Free Trial
+            </a>
+<a class="inline-flex items-center gap-space-xs font-label-code text-label-code uppercase tracking-wider text-secondary hover:text-primary-container transition-colors" href="#">
+<span>Download Curriculum Outline</span>
+<span class="material-symbols-outlined text-[16px]">arrow_right_alt</span>
+</a>
+</div>
+</div>
+</div>
+</article>
+</section>
+<!-- SECTION 3: CALL-TO-ACTION BAND (BOTTOM ANCHOR) -->
+<section class="w-full bg-surface-container-low border-y border-surface-container-highest py-space-xl px-margin-mobile md:px-margin">
+<div class="max-w-5xl mx-auto flex flex-col items-center text-center">
+<div class="inline-flex items-center gap-space-xs px-space-sm py-space-xs rounded-DEFAULT bg-surface-container border border-surface-container-highest text-primary font-label-code text-label-code uppercase tracking-widest mb-space-md">
+<span class="material-symbols-outlined text-[14px]">terminal</span>
+<span>SECTOR 04 ACCESS PROTOCOL</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg md:font-display-lg md:text-display-lg uppercase tracking-tight text-on-surface mb-space-sm">
+        NOT SURE WHERE TO START? <span class="text-primary-container">TEST THE PLATFORM FOR FREE.</span>
+</h2>
+<p class="font-body-md text-body-md text-secondary max-w-2xl mb-space-xl">
+        Book your complimentary trial session. Experience the equipment, meet with our coaching staff, and determine your training path with zero sales pressure.
+      </p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-space-md w-full max-w-md mb-space-lg">
+<a class="w-full sm:w-auto flex-1 inline-flex items-center justify-center bg-primary-container text-on-primary-container font-headline-sm text-headline-sm uppercase tracking-wider px-space-xl py-space-md rounded-DEFAULT hover:bg-primary transition-colors" href="#">
+          Claim Free Trial Session →
+        </a>
+<a class="w-full sm:w-auto inline-flex items-center justify-center bg-transparent border border-surface-container-highest text-on-surface font-headline-sm text-headline-sm uppercase tracking-wider px-space-lg py-space-md rounded-DEFAULT hover:border-primary-container hover:text-primary-container transition-colors" href="#">
+          Consult a Strength Coach
+        </a>
+</div>
+<div class="flex items-center justify-center gap-space-xs font-label-code text-label-code text-outline max-w-lg">
+<span class="material-symbols-outlined text-[16px] text-outline">info</span>
+<span>Biometric waiver signed upon arrival. Strictly capped at 12 guest trials per day to prevent overcrowding.</span>
+</div>
+</div>
+</section>
+<!-- Interactive Filter Logic (Client-Side Vanilla JS) -->
+<script>
+    (function() {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const programItems = document.querySelectorAll('.program-item');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const filterValue = btn.getAttribute('data-filter');
+
+          // Toggle button styles
+          filterBtns.forEach(b => {
+            b.classList.remove('bg-primary-container', 'text-on-primary-container');
+            b.classList.add('bg-surface-container', 'text-secondary', 'border', 'border-surface-container-highest');
+          });
+
+          btn.classList.add('bg-primary-container', 'text-on-primary-container');
+          btn.classList.remove('bg-surface-container', 'text-secondary', 'border', 'border-surface-container-highest');
+
+          // Filter card modules
+          programItems.forEach(item => {
+            const itemCat = item.getAttribute('data-category');
+            if (filterValue === 'all' || itemCat === filterValue) {
+              item.style.display = 'block';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+    })();
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest border-t border-surface-container-highest"><div class="w-full px-margin py-space-xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-gutter mb-space-xl"><div class="lg:col-span-2 flex flex-col gap-space-md"><div class="flex items-center gap-space-sm"><span class="font-headline-md text-headline-md uppercase tracking-wider text-on-surface">Iron District Fitness</span></div><p class="font-body-sm text-body-sm text-secondary max-w-sm">Industrial strength laboratory dedicated to serious lifters, disciplined athletes, and progressive overload.</p><div class="flex flex-col gap-space-xs font-label-code text-label-code text-secondary"><span class="text-outline">LOCATION:</span><span>402 Foundry Way, Industrial Quarter, Sector 4</span><span class="text-outline mt-space-xs">COMMS:</span><span>+1 (555) 019-4821</span></div></div><div class="flex flex-col gap-space-sm"><span class="font-label-code text-label-code text-primary uppercase tracking-widest">// Programs</span><ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-secondary"><li class="hover:text-primary-container transition-colors"><a data-path="programs" href="#">Heavy Barbell Club</a></li><li class="hover:text-primary-container transition-colors"><a data-path="programs" href="#">Hypertrophy Lab</a></li><li class="hover:text-primary-container transition-colors"><a data-path="programs" href="#">Powerlifting Precision</a></li><li class="hover:text-primary-container transition-colors"><a data-path="programs" href="#">Conditioning Matrix</a></li></ul></div><div class="flex flex-col gap-space-sm"><span class="font-label-code text-label-code text-primary uppercase tracking-widest">// The Facility</span><ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-secondary"><li class="hover:text-primary-container transition-colors"><a data-path="contact" href="#">Sector 4 Arsenal</a></li><li class="hover:text-primary-container transition-colors"><a data-path="contact" href="#">Calibrated Steel</a></li><li class="hover:text-primary-container transition-colors"><a data-path="contact" href="#">Platform Guidelines</a></li><li class="hover:text-primary-container transition-colors"><a data-path="contact" href="#">Recovery Quarters</a></li></ul></div><div class="flex flex-col gap-space-sm"><span class="font-label-code text-label-code text-primary uppercase tracking-widest">// Memberships</span><ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-secondary"><li class="hover:text-primary-container transition-colors"><a data-path="membership" href="#">Iron Foundation</a></li><li class="hover:text-primary-container transition-colors"><a data-path="membership" href="#">Performance Tier</a></li><li class="hover:text-primary-container transition-colors"><a data-path="membership" href="#">Elite Access</a></li><li class="hover:text-primary-container transition-colors"><a data-path="book-trial" href="#">Free Trial Session</a></li></ul></div><div class="flex flex-col gap-space-sm"><span class="font-label-code text-label-code text-primary uppercase tracking-widest">// Support &amp; Feed</span><ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-secondary mb-space-sm"><li class="hover:text-primary-container transition-colors"><a data-path="contact" href="#">Facility Protocol</a></li><li class="hover:text-primary-container transition-colors"><a data-path="contact" href="#">Direct Inquiries</a></li></ul><div class="flex items-center gap-space-sm"><a aria-label="Instagram" class="w-8 h-8 rounded-DEFAULT bg-surface-container flex items-center justify-center text-secondary hover:text-primary-container hover:bg-surface-container-high transition-colors" href="#"><span class="material-symbols-outlined text-[16px]">photo_camera</span></a><a aria-label="Facebook" class="w-8 h-8 rounded-DEFAULT bg-surface-container flex items-center justify-center text-secondary hover:text-primary-container hover:bg-surface-container-high transition-colors" href="#"><span class="material-symbols-outlined text-[16px]">public</span></a><a aria-label="YouTube" class="w-8 h-8 rounded-DEFAULT bg-surface-container flex items-center justify-center text-secondary hover:text-primary-container hover:bg-surface-container-high transition-colors" href="#"><span class="material-symbols-outlined text-[16px]">smart_display</span></a><a aria-label="X" class="w-8 h-8 rounded-DEFAULT bg-surface-container flex items-center justify-center text-secondary hover:text-primary-container hover:bg-surface-container-high transition-colors" href="#"><span class="material-symbols-outlined text-[16px]">tag</span></a></div></div></div><div class="pt-space-lg border-t border-surface-container-high flex flex-col md:flex-row items-center justify-between gap-space-sm"><span class="font-label-code text-label-code text-secondary">© 2025 Iron District Fitness Ltd. Built by Discipline. All rights reserved. Portfolio demo brand.</span><div class="flex items-center gap-space-md font-label-code text-label-code text-outline"><a class="hover:text-on-surface transition-colors" href="#">TERMS</a><span>//</span><a class="hover:text-on-surface transition-colors" href="#">PRIVACY</a><span>//</span><a class="hover:text-on-surface transition-colors" href="#">SAFETY PROTOCOL</a></div></div></div></footer></body></html>

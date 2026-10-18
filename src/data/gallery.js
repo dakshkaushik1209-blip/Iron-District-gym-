@@ -1,0 +1,66 @@
+/**
+ * Facility Photography Data for Iron District Fitness.
+ */
+
+export const galleryImages = [
+  {
+    id: 'zone-01',
+    zone: 'ZONE 01 // MAIN STAGE',
+    title: 'Competition Weight-Training Zone',
+    description: 'Competition-grade barbells, precision steel plates, deadlift jacks, and oak lifting platforms.',
+    image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1200&auto=format&fit=crop',
+    alt: 'Lifting competition arena inside industrial strength facility with steel platforms and competition-style plates in symmetric rows',
+    aspect: 'span-2',
+    featured: true,
+  },
+  {
+    id: 'zone-02',
+    zone: 'ZONE 02',
+    title: 'Cardio Suite',
+    description: 'Rowing machines, ski machines, and stationary assault bikes.',
+    image: 'https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=1200&auto=format&fit=crop',
+    alt: 'Line of rowing machines and ski machines in an industrial low-light gym with moody amber strip lighting',
+    aspect: 'span-1',
+    featured: false,
+  },
+  {
+    id: 'zone-03',
+    zone: 'ZONE 03',
+    title: 'Functional Sprint Track',
+    description: '40m sled run, stone pedestals & strongman equipment.',
+    image: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop',
+    alt: 'Indoor 40m sprint turf strip flanked by heavy sleds and yoke carries in modern industrial gym',
+    aspect: 'span-1',
+    featured: false,
+  },
+  {
+    id: 'zone-04',
+    zone: 'ZONE 04',
+    title: 'Recovery Quarters',
+    description: 'Stainless steel cold plunges & cedar infrared therapy.',
+    image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1200&auto=format&fit=crop',
+    alt: 'Modern dark contrast therapy room with cold plunge tubs and cedar infrared sauna with warm backlighting',
+    aspect: 'span-1',
+    featured: false,
+  },
+  {
+    id: 'zone-05',
+    zone: 'ZONE 05',
+    title: 'Equipment Vault & Lockers',
+    description: 'Keycard lockers, rain showers, and fresh towel service.',
+    image: 'https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?q=80&w=1200&auto=format&fit=crop',
+    alt: 'Minimalist matte black locker room interior with private showers and industrial steel bench',
+    aspect: 'span-1',
+    featured: false,
+  },
+  {
+    id: 'zone-06',
+    zone: 'ZONE 06',
+    title: 'Specialty Bar Arsenal',
+    description: 'Safety squat bars, specialty bars, cambered bars, and Swiss press bars.',
+    image: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=1200&auto=format&fit=crop',
+    alt: 'Close-up of specialty powerlifting barbells racked vertically on industrial gun-rack brackets',
+    aspect: 'span-1',
+    featured: false,
+  },
+];
